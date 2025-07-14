@@ -93,6 +93,7 @@ Measurements included:
 ## 🌎 Environmental Data
 
 - **Sources**: WorldClim v2.1 bioclimatic layers (~1 km² resolution)
+  - > Fick, S. E. & Hijmans, R. J. (2017). *WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas.* International Journal of Climatology, 37(12), 4302–4315. DOI: 10.1002/joc.5086
 - **Variables**: Altitude, min/max annual temperature, precipitation
 - **Tools**: Extracted using R `raster` package
 
