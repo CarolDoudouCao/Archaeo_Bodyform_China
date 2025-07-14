@@ -115,16 +115,20 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
 
 ### 🌍 Spatial & Environmental Predictors
 
-- **Fixed effects**:  
-  - Minimum temperature  
-  - Maximum temperature  
-  - Minimum precipitation  
-  - Maximum precipitation  
-  - Altitude  
+- **Fixed effects** (all standardised):
+  - `mintemp_z`: Minimum temperature (coldest month)
+  - `maxtemp_z`: Maximum temperature (warmest month)
+  - `minprecip_z`: Minimum precipitation (driest month)
+  - `maxprecip_z`: Maximum precipitation (wettest month)
+  - `altitude_z`: Site altitude
+
 - **Spatial smooth**:  
-  - A tensor-product spline (`t2(lon_z, lat_z)`) modeled spatial autocorrelation
+  - `t2(lon_z, lat_z)`: A 2D tensor-product spline modeling spatial autocorrelation using standardised longitude and latitude
+
 - **Random effect**:  
-  - Archaeological group `(1 | group)` to account for unobserved group-level variation
+  - `(1 | group)`: A random intercept for archaeological group, capturing group-level structure and allowing partial pooling
+
+---
 
 ### 📐 Model Formula (Example)
 
@@ -134,32 +138,23 @@ Trait_z ~ s(date_z, k = 10) + t2(lon_z, lat_z) +
 β₃·minprecip_z + β₄·maxprecip_z +
 β₅·altitude_z + (1 | group)
 ```
-Trait_z: The z-scored skeletal measurement or index (e.g., FXL_z, BI_z)
 
-s(date_z, k = 10): A univariate spline capturing non-linear temporal trends using the standardised imputed calendar date; k = 10 limits flexibility to avoid overfitting
+- **Trait_z**: The z-scored skeletal measurement or index (e.g., FXL_z, BI_z)
 
-t2(lon_z, lat_z): A 2D thin-plate spline modeling spatial autocorrelation using standardised longitude and latitude
+- **s(date_z, k = 10)**: A univariate spline capturing non-linear temporal trends using the standardised imputed calendar date; k = 10 limits flexibility to avoid overfitting
 
-β₁–β₅: Coefficients for fixed effects of standardised environmental variables:
+- **t2(lon_z, lat_z)**: A 2D thin-plate spline modeling spatial autocorrelation using standardised longitude and latitude
 
-mintemp_z: minimum temperature (coldest month)
+- **β₁–β₅**: Coefficients for fixed effects of environmental variables (standardised)
 
-maxtemp_z: maximum temperature (warmest month)
+- **(1 | group)**: A random intercept for archaeological group, accounting for shared variation within cultural or regional groups and allowing partial pooling across sites with different sample sizes
 
-minprecip_z: minimum precipitation (driest month)
-
-maxprecip_z: maximum precipitation (wettest month)
-
-altitude_z: site altitude
-
-(1 | group): A random intercept for archaeological group, accounting for shared variation within cultural or regional groups and allowing partial pooling across sites with different sample sizes
-
-This model structure allows the disentangling of spatial, temporal, and ecological influences on variation in body size and proportions, while accounting for archaeological context and uncertainty in dating.
 - **Likelihood**: Student-t (robust to outliers)
 - **Priors**: Weakly informative  
   - Fixed effects: `Normal(0, 1)`  
   - Random and residual SDs: `Student-t(3, 0, 1)`  
   - Spline smoothness: `Exponential(1)`
+
 
 ### 🗺️ Prediction & Visualization
 
