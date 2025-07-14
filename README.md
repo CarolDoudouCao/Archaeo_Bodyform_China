@@ -67,18 +67,6 @@ Measurements included:
 
 ### 🧭 Time Period Categories
 
-| Period | Description | Date Range |
-|--------|-------------|------------|
-| 1 | Early Neolithic | 9,000–7,000 BP |
-| 2 | Middle Neolithic | 7,000–4,500 BP |
-| 3 | Late Neolithic | 4,500–3,500 BP |
-| 4 | Bronze–Early Iron Age | 3,500–2,152 BP |
-| 5 | Early–Mid Iron Age | 2,152–1,530 BP |
-| 6 | Middle Iron Age | 1,530–583 BP |
-| 7 | Late Iron Age | 582–38 BP |
-
-### 🧭 Time Period Categories
-
 | Period | Description            | Date Range (BP) | Cultural / Dynastic Context |
 |--------|------------------------|-----------------|------------------------------|
 | 1      | Early Neolithic        | 9,000–7,000 BP   | Early farming communities (e.g., Jiahu, Jiangjialiang) |
