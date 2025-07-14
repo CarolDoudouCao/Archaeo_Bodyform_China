@@ -20,12 +20,12 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │
 ├── output/                                        # Tables and figures
 │   ├── regression_coefficients.csv                # Posterior summaries of fixed effects
-│   ├── map and timeline     
-│   ├── predictive surfaces
-│   ├── posterior draws (fixed and random)
-│   └── temporal trend plots (marginal_effects)
+│   ├── map_and_timeline/                          # Maps and chronological figures
+│   ├── predictive_surfaces/                       # Spatial prediction surfaces
+│   ├── posterior_draws/                           # Fixed and random effects
+│   └── temporal_trends/                           # Marginal effect plots
 │
-└── README.md     
+└── README.md                                      # Project overview and documentation
 
 ```
 
