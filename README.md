@@ -1,7 +1,8 @@
 
-# Tracking Spatial and Temporal Variation in Body Size and Proportions across Ancient Chinese Groups
+# Chapter 7 – Tracking Spatial and Temporal Variation in Body Size and Proportions across Ancient Chinese Groups
 
-This repository accompanies the analyses for Chapter 7 of my PhD thesis, which investigates how body size and limb proportions varied across time, space, and ecology among archaeological groups in China spanning from the Early Neolithic to the Late Imperial period (~10,000–38 BP). It includes original osteometric measurements from newly analyzed highland and lowland populations, combined with published datasets from 64 archaeological sites, and integrates climatic, geographic, and ecological data to evaluate temporal and spatial trends.
+This repository supports Chapter 7 of my PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
+
 
 ## 📚 Study Overview
 
@@ -67,9 +68,7 @@ Measurements included:
 ```text
 ├── data/
 │   ├── archaeological_metadata.csv   # Site names, periods, coordinates
-│   ├── limb_measurements_raw.csv     # Raw osteometric data
-│   ├── limb_indices_cleaned.csv      # Cleaned + computed BI, CI
-│   └── group_definitions.csv         # Time period assignments
+│   └── limb_measurements_indices.csv     # Raw osteometric data + computed BI, CI
 │
 ├── scripts/
 │   ├── 01_data_preparation.R
@@ -90,3 +89,28 @@ Measurements included:
 │   └── posterior_draws/
 │
 └── README.md
+
+
+## 🛠️ Software and Packages
+
+- **R version ≥ 4.2**
+- Key packages:
+  - `tidyverse`
+  - `brms`, `rstan`
+  - `sf`, `terra`, `raster`
+  - `ggplot2`, `patchwork`, `cowplot`
+
+## 📌 Citation and Credits
+
+If you use this code, data structure, or methodology, please cite:
+
+Cao, D. (2025). _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_. PhD Thesis, University of Cambridge. Chapter 7: Tracking Spatial and Temporal Variation in Body Size and Proportions across Ancient Chinese Groups.
+
+
+## 📫 Contact
+
+Doudou Cao  
+PhD Candidate, Biological Anthropology  
+University of Cambridge  
+Email: [dc798@cam.ac.uk]
+
