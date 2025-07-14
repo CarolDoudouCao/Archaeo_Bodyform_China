@@ -21,7 +21,8 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   ├── regression_coefficients/                   # CSV files with posterior summaries of fixed effects
 │   ├── predictive_surfaces/                       # Spatial prediction surfaces
 │   ├── posterior_draws/                           # Fixed and random effects
-│   └── temporal_trends/                           # Conditional effect plots for temperal effects
+│   ├── temporal_trends/                           # Conditional effect plots for temperal effects
+│   └── environmental_effects/                     # Conditional effect plots for environmental variables
 │
 └── README.md                                      # Project overview and documentation
 ```
