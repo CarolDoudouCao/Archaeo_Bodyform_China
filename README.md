@@ -90,73 +90,76 @@ Measurements included:
 │
 └── README.md
 ```
-🔍 Methods Summary
-This study employed Bayesian Generalized Additive Mixed Models (GAMMs) to investigate long-term spatial and temporal variation in body size and proportions among ancient Chinese populations.
 
-🧠 Model Overview
-Traits modeled: Femur length (FXL), femoral head diameter (FHD), crural and brachial indices
+## 🔍 Methods Summary
 
-Model type: Bayesian GAMMs via brms and Stan, using HMC sampling
+This study employed **Bayesian Generalized Additive Mixed Models (GAMMs)** to investigate long-term spatial and temporal variation in body size and proportions among ancient Chinese populations.
 
-Sex-specific models: All traits were modeled separately for males and females
+### 🧠 Model Overview
 
-Standardization:
+- **Traits modeled**: Femur length (FXL), femoral head diameter (FHD), crural and brachial indices
+- **Model type**: Bayesian GAMMs via `brms` and `Stan`, using Hamiltonian Monte Carlo (HMC) sampling  
+- **Sex-specific models**: All traits were modeled separately for males and females
+- **Standardization**:  
+  - All predictors and outcomes were z-scored to improve numerical stability and comparability  
+  - Time was modeled as a penalized spline using imputed calendar dates
 
-All predictors and outcomes were z-scored to improve numerical stability and comparability across variables
+### 📅 Temporal Modeling
 
-Time was modeled as a penalized spline using imputed calendar dates (see below)
+- **Time variable**:  
+  - Calendar-year estimates (in years BP) were sampled from group-level time ranges  
+  - Ranges were based on either calibrated radiocarbon intervals or archaeological period boundaries  
+  - Models were fit to 50 imputed datasets to incorporate chronological uncertainty
+- **Spline smoothing**:  
+  - Time modeled as `s(date_z, k = 10)` to capture non-linear trends without arbitrary binning
 
-📅 Temporal Modeling
-Time variable:
+### 🌍 Spatial & Environmental Predictors
 
-Calendar-year estimates (in BP) were sampled from group-specific ranges (direct radiocarbon intervals or archaeological phase boundaries)
+- **Fixed effects**:  
+  - Minimum temperature  
+  - Maximum temperature  
+  - Minimum precipitation  
+  - Maximum precipitation  
+  - Altitude  
+- **Spatial smooth**:  
+  - A tensor-product spline (`t2(lon_z, lat_z)`) modeled spatial autocorrelation
+- **Random effect**:  
+  - Archaeological group `(1 | group)` to account for unobserved group-level variation
 
-Each model was run across 50 imputed datasets to capture temporal uncertainty
-
-Spline smoothing:
-
-Time modeled as s(date_z) with 10 basis functions (k=10)
-
-Avoids arbitrary binning and reflects uncertainty in archaeological chronology
-
-🌍 Spatial & Environmental Predictors
-Fixed effects:
-
-Minimum and maximum temperature
-
-Minimum and maximum precipitation
-
-Altitude
-
-Spatial smooth:
-
-A tensor-product spline (t2(lon_z, lat_z)) captures residual geographic patterning
-
-Random effect:
-
-Archaeological group as a varying intercept (1 | group) to account for cultural or population-level differences
-
-📐 Model Specification
-Each model followed the form:
+### 📐 Model Formula (Example)
 
 ```text
-Trait_z ~ s(date_z, k=10) + t2(lon_z, lat_z) + β1·mintemp_z + β2·maxtemp_z + β3·minprecip_z + β4·maxprecip_z + β5·altitude_z + (1 | group)
+Trait_z ~ s(date_z, k = 10) + t2(lon_z, lat_z) +
+β₁·mintemp_z + β₂·maxtemp_z +
+β₃·minprecip_z + β₄·maxprecip_z +
+β₅·altitude_z + (1 | group)
 ```
 
-Likelihood: Student-t (robust to outliers)
+- **Likelihood**: Student-t (robust to outliers)
+- **Priors**: Weakly informative  
+  - Fixed effects: `Normal(0, 1)`  
+  - Random and residual SDs: `Student-t(3, 0, 1)`  
+  - Spline smoothness: `Exponential(1)`
 
-Priors: Weakly informative priors (e.g., Normal(0,1), Student-t(3,0,1), Exponential(1))
+### 🗺️ Prediction & Visualization
 
-🗺️ Prediction & Visualization
 Three prediction maps were generated:
 
-Full model: includes both spatial and environmental effects
+1. **Full model**: includes spatial and environmental effects  
+2. **Spatial-only**: holds climate variables constant at their mean (z = 0)  
+3. **Environmental effect**: difference between full and spatial-only models
 
-Spatial-only: environmental variables held at mean (z = 0)
+- Predictions were computed for a 400 × 400 grid (~16,000 locations) across China  
+- Environmental rasters were extracted from **WorldClim v2.1** at 30 arc-second resolution  
+- Posterior draws and conditional effect plots were generated using `tidybayes`
 
-Environmental effect: difference between full and spatial-only models
+### ⚙️ Software & Tools
 
-Predictions were based on a ~16,000-point spatial grid across China, using climate rasters from WorldClim v2.1 (Fick & Hijmans 2017). Posterior draws and conditional effect plots were generated using tidybayes.
+- `brms`, `rstan` – Bayesian modeling
+- `tidyverse`, `sf`, `terra`, `raster` – Data wrangling and spatial extraction
+- `furrr` – Parallelised imputation–modeling pipeline
+- `tidybayes` – Posterior summarization and visualization
+
 
 ⚙️ Software & Tools
 brms and Stan for Bayesian modeling
