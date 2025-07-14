@@ -7,7 +7,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 
 ```text
 ├── data/
-│   ├── archaeological_metadata.csv                # Site metadata: group names, periods, data sources
+│   ├── archaeological_metadata.csv                # Site metadata: group names, periods, and data sources
 │   └── individual_limb_measurements_indices.csv   # Osteometric data (e.g., male FXL example) with computed BI and CI
 │
 ├── scripts/
