@@ -63,28 +63,30 @@ Measurements included:
 - **Tools**: Extracted using R `raster` package
 
 ## 📂 Repository Structure
+
+```text
 ├── data/
-│ ├── archaeological_metadata.csv # Site names, periods, coordinates
-│ ├── limb_measurements_raw.csv # Raw osteometric data
-│ ├── limb_indices_cleaned.csv # Cleaned + computed BI, CI
-│ ├── climate_variables_worldclim.csv # Extracted climatic data
-│ └── group_definitions.csv # Time period assignments
+│   ├── archaeological_metadata.csv   # Site names, periods, coordinates
+│   ├── limb_measurements_raw.csv     # Raw osteometric data
+│   ├── limb_indices_cleaned.csv      # Cleaned + computed BI, CI
+│   └── group_definitions.csv         # Time period assignments
 │
 ├── scripts/
-│ ├── 01_data_cleaning.R
-│ ├── 02_compute_indices.R
-│ ├── 03_spatiotemporal_plots.R
-│ ├── 04_bayesian_modeling.R
-│ └── 05_figures_export.R
+│   ├── 01_data_preparation.R
+│   ├── 02_bayesian_modeling.R
+│   ├── 03_predictive_spatiotemporal_plots.R
+│   ├── 04_fixed_and_random_effects_plotting.R
+│   ├── 05_marginal_effects.R
+│   └── 06_figures_generation.R
 │
 ├── figures/
-│ ├── fig7_1_sample_distribution.png
-│ ├── fig7_3_site_locations_by_period.png
-│ └── ...
+│   ├── fig7_1_sample_distribution.png
+│   ├── fig7_3_site_locations_by_period.png
+│   └── ...
 │
 ├── output/
-│ ├── regression_coefficients.csv
-│ ├── summary_statistics.xlsx
-│ └── posterior_draws/
+│   ├── regression_coefficients.csv
+│   ├── summary_statistics.xlsx
+│   └── posterior_draws/
 │
-├── README.md
+└── README.md
