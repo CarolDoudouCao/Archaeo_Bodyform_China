@@ -63,4 +63,28 @@ Measurements included:
 - **Tools**: Extracted using R `raster` package
 
 ## 📂 Repository Structure
-
+├── data/
+│ ├── archaeological_metadata.csv # Site names, periods, coordinates
+│ ├── limb_measurements_raw.csv # Raw osteometric data
+│ ├── limb_indices_cleaned.csv # Cleaned + computed BI, CI
+│ ├── climate_variables_worldclim.csv # Extracted climatic data
+│ └── group_definitions.csv # Time period assignments
+│
+├── scripts/
+│ ├── 01_data_cleaning.R
+│ ├── 02_compute_indices.R
+│ ├── 03_spatiotemporal_plots.R
+│ ├── 04_bayesian_modeling.R
+│ └── 05_figures_export.R
+│
+├── figures/
+│ ├── fig7_1_sample_distribution.png
+│ ├── fig7_3_site_locations_by_period.png
+│ └── ...
+│
+├── output/
+│ ├── regression_coefficients.csv
+│ ├── summary_statistics.xlsx
+│ └── posterior_draws/
+│
+├── README.md
