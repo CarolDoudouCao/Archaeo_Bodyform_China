@@ -26,7 +26,6 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   └── temporal_trends/                           # Marginal effect plots
 │
 └── README.md                                      # Project overview and documentation
-
 ```
 
 > **Note:** This repository uses male femur length as an example to illustrate workflows.  
