@@ -93,16 +93,16 @@ Measurements included:
 
 ## 🔍 Methods Summary
 
-This study employed **Bayesian Generalized Additive Mixed Models (GAMMs)** to investigate long-term spatial and temporal variation in body size and proportions among ancient Chinese populations.
+This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to investigate long-term spatial and temporal variation in body size and proportions among ancient Chinese populations.
 
 ### 🧠 Model Overview
 
-- **Traits modeled**: Femur length (FXL), femoral head diameter (FHD), crural and brachial indices
+- **Traits modeled**: Femur length (FXL), femoral head diameter (FHD), tibiae length (TXL), humerus length (HXL), radius length (RXL), crural and brachial indices (see definations above)
 - **Model type**: Bayesian GAMMs via `brms` and `Stan`, using Hamiltonian Monte Carlo (HMC) sampling  
 - **Sex-specific models**: All traits were modeled separately for males and females
-- **Standardization**:  
-  - All predictors and outcomes were z-scored to improve numerical stability and comparability  
-  - Time was modeled as a penalized spline using imputed calendar dates
+- **Standardisation**:  
+  - All predictors and outcome variables were z-scored to improve numerical stability, aid model convergence, and enable effect size comparability across traits  
+  - Time was modeled as a penalised spline on imputed calendar-year estimates; models were fitted across 50 imputed datasets to account for chronological uncertainty
 
 ### 📅 Temporal Modeling
 
@@ -134,7 +134,27 @@ Trait_z ~ s(date_z, k = 10) + t2(lon_z, lat_z) +
 β₃·minprecip_z + β₄·maxprecip_z +
 β₅·altitude_z + (1 | group)
 ```
+Trait_z: The z-scored skeletal measurement or index (e.g., FXL_z, BI_z)
 
+s(date_z, k = 10): A univariate spline capturing non-linear temporal trends using the standardised imputed calendar date; k = 10 limits flexibility to avoid overfitting
+
+t2(lon_z, lat_z): A 2D thin-plate spline modeling spatial autocorrelation using standardised longitude and latitude
+
+β₁–β₅: Coefficients for fixed effects of standardised environmental variables:
+
+mintemp_z: minimum temperature (coldest month)
+
+maxtemp_z: maximum temperature (warmest month)
+
+minprecip_z: minimum precipitation (driest month)
+
+maxprecip_z: maximum precipitation (wettest month)
+
+altitude_z: site altitude
+
+(1 | group): A random intercept for archaeological group, accounting for shared variation within cultural or regional groups and allowing partial pooling across sites with different sample sizes
+
+This model structure allows the disentangling of spatial, temporal, and ecological influences on variation in body size and proportions, while accounting for archaeological context and uncertainty in dating.
 - **Likelihood**: Student-t (robust to outliers)
 - **Priors**: Weakly informative  
   - Fixed effects: `Normal(0, 1)`  
