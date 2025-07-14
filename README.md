@@ -8,7 +8,7 @@ This repository supports Chapter 7 of my PhD thesis _Adaptation at High Altitude
 ```text
 ├── data/
 │   ├── archaeological_metadata.csv   # Site names, periods, coordinates
-│   └── limb_measurements_indices.csv     # Raw osteometric data + computed BI, CI
+│   └── individual_limb_measurements_indices.csv   # Raw osteometric data + computed BI, CI
 │
 ├── scripts/
 │   ├── 01_data_preparation.R
@@ -18,15 +18,7 @@ This repository supports Chapter 7 of my PhD thesis _Adaptation at High Altitude
 │   ├── 05_marginal_effects.R
 │   └── 06_figures_generation.R
 │
-├── figures/
-│   ├── fig7_1_sample_distribution.png
-│   ├── fig7_3_site_locations_by_period.png
-│   └── ...
-│
-├── output/
-│   ├── regression_coefficients.csv
-│   ├── summary_statistics.xlsx
-│   └── posterior_draws/
+├── output figures
 │
 └── README.md
 ```
@@ -70,8 +62,8 @@ Measurements included:
 | Period | Description            | Date Range (BP) | Cultural / Dynastic Context |
 |--------|------------------------|-----------------|------------------------------|
 | 1      | Early Neolithic        | 9,000–7,000  | Early farming communities (e.g., Jiahu, Jiangjialiang) |
-| 2      | Middle Neolithic       | 7,000–4,500  | Expansion of agriculture (e.g., Miaodigou, Qingtai) |
-| 3      | Late Neolithic         | 4,500–3,500  | Agricultural intensification and emergiing social stratification (e.g., Gaoshan, **Erlitou [Xia?]**) |
+| 2      | Middle Neolithic       | 7,000–4,500  | Agricultural intensification (e.g., Miaodigou, Qingtai) |
+| 3      | Late Neolithic         | 4,500–3,500  | Emergiing social inequalities (e.g., Mougou, **Erlitou [Xia?]**) |
 | 4      | Bronze–Early Iron Age  | 3,500–2,152  | Early states and metallurgy: Shang, Western Zhou, Spring–Autumn (pre-Qin) periods |
 | 5      | Early–Mid Iron Age     | 2,152–1,530  | Warring States, Qin, Western Han, Eastern Han |
 | 6      | Middle Iron Age        | 1,530–583    | Fragmentation and cosmopolitan empires: Three Kingdoms, Jin, Northern & Southern Dynasties, Sui, Tang, Song, Yuan |
