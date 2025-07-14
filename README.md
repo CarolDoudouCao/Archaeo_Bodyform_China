@@ -28,7 +28,8 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 └── README.md     
 
 ```
-> **Note:** This repository includes only male FXL examples; all scripts  are applicable to both sexes and traits, but other scripts and outputs are omitted to avoid redundancy.
+> **Note:** This repository includes male FXL examples for demonstration purposes. The scripts are applicable to both sexes and all traits; additional scripts are not included here to streamline the repository and avoid duplication.
+
 
 ## 📚 Study Overview
 
