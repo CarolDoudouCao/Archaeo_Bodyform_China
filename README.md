@@ -155,7 +155,7 @@ Trait_z ~ s(date_z, k = 10) + t2(lon_z, lat_z) +
   - Spline smoothness: `Exponential(1)`
 
 
-### 🗺️ Prediction & Visualization
+### 🗺️ Prediction & Visualisation
 
 Three prediction maps were generated:
 
