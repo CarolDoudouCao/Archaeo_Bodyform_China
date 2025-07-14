@@ -15,7 +15,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   ├── 02_bayesian_modeling.R                     # Fit Bayesian GAMMs with brms
 │   ├── 03_prediction_spatiotemporal_plots.R       # Generate spatial prediction maps
 │   ├── 04_fixed_and_random_effects_plotting.R     # Extract and plot model effects
-│   ├── 05_marginal_effects.R                      # Conditional effect plots for each predictor
+│   ├── 05_conditional_effects.R                   # Conditional effect plots for each predictor
 │   └── 06_figures_generation.R                    # Compile and export final publication figures
 │
 ├── output/                                        # Tables and figures
@@ -23,7 +23,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   ├── map_and_timeline/                          # Maps and chronological figures
 │   ├── predictive_surfaces/                       # Spatial prediction surfaces
 │   ├── posterior_draws/                           # Fixed and random effects
-│   └── temporal_trends/                           # Marginal effect plots
+│   └── temporal_trends/                           # Conditional effect plots for temperal effects
 │
 └── README.md                                      # Project overview and documentation
 ```
