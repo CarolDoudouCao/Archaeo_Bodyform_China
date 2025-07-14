@@ -175,14 +175,21 @@ The following figures were generated from this study and correspond to those pre
 
 ## 🛠️ Software & Key Packages
 
-The analysis was conducted in R (≥ 4.2) using the following core packages:
+The analysis was conducted in **R (≥ 4.2)** using the following core packages:
 
 - `brms`, `rstan` – Bayesian modeling via Stan and HMC sampling  
 - `tidyverse` – Data wrangling and plotting (`dplyr`, `ggplot2`, `readr`, etc.)  
 - `sf`, `terra`, `raster` – Spatial data handling and environmental extraction  
+- `sp` – Spatial points creation for raster-based climate extraction  
 - `furrr` – Parallelised imputation–modeling workflow across multiple cores  
-- `tidybayes` – Posterior summarization, uncertainty visualisation  
-- `patchwork`, `cowplot` – Plot arrangement and multi-panel figure layout
+- `posterior` – Efficient manipulation and thinning of Stan draws  
+- `cmdstanr` – On-disk sampling backend for `brms` models (faster & memory efficient)  
+- `tidybayes` – Posterior summarization and uncertainty visualisation  
+- `mgcv` – Spline terms (`s()`, `t2()`) in semiparametric models  
+- `here` – Project-rooted file path management  
+- `patchwork`, `cowplot` – Plot arrangement and multi-panel figure layout  
+- `RColorBrewer` – Color palettes for maps and model coefficient plots  
+
 
 ## 📌 Citation and Credits
 
