@@ -4,19 +4,24 @@
 This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
 
 ## 📂 Repository Structure
+## 📂 Repository Structure
 
-- **Data** (`data/`):  
-  Archaeological metadata (site names, time periods, coordinates), individual limb measurements, and computed indices (BI, CI).
+```text
+├── data/
+│   ├── archaeological_metadata.csv                # Site metadata: group names, periods, coordinates
+│   └── individual_limb_measurements_indices.csv   # Osteometric data (e.g., male FXL example) with computed BI and CI
+│
+├── scripts/
+│   ├── 01_data_preparation.R                      # Clean and standardise raw and metadata
+│   ├── 02_bayesian_modeling.R                     # Fit Bayesian GAMMs with brms
+│   ├── 03_predictive_spatiotemporal_plots.R       # Generate spatial prediction maps
+│   ├── 04_fixed_and_random_effects_plotting.R     # Extract and plot model effects
+│   ├── 05_marginal_effects.R                      # Conditional effect plots for each predictor
+│   └── 06_figures_generation.R                    # Compile and export final publication figures
+│
+└── output/                                        # Model output figures and tables
 
-- **Scripts** (`scripts/`):  
-  R scripts for data preparation, Bayesian GAMMs, spatiotemporal mapping, effect plotting, and figure assembly.
-
-- **Output** (`output/`):  
-  Model outputs (posterior draws, regression coefficients, summary statistics).
-
-- **Figures** (`figures/`):  
-  Final visualizations from Chapter 7: maps, predictive surfaces, posterior distributions, and temporal trend plots.
-
+```
 
 ## 📚 Study Overview
 
