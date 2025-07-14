@@ -5,17 +5,17 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 
 ## 📂 Repository Structure
 
-- **Data** (`/data/`)  
-  Contains archaeological metadata (e.g., group names, site coordinates, time periods) and individual-level osteometric measurements (e.g., male FXL examples, computed indices such as BI and CI).
+- **Data** (`data/`):  
+  Archaeological metadata (site names, time periods, coordinates), individual limb measurements, and computed indices (BI, CI).
 
-- **Scripts** (`/scripts/`)  
-  R scripts for data cleaning, Bayesian modeling, spatial predictions, effect plotting, and figure generation.
+- **Scripts** (`scripts/`):  
+  R scripts for data preparation, Bayesian GAMMs, spatiotemporal mapping, effect plotting, and figure assembly.
 
-- **Output** (`/output/`)  
-  Includes final model outputs such as posterior estimates, coefficient summaries, and supplementary data tables.
+- **Output** (`output/`):  
+  Model outputs (posterior draws, regression coefficients, summary statistics).
 
-- **Figures** (`/figures/`)  
-  Contains visual outputs used in Chapter 7 of the thesis, including maps, posterior plots, and temporal trend figures.
+- **Figures** (`figures/`):  
+  Final visualizations from Chapter 7: maps, predictive surfaces, posterior distributions, and temporal trend plots.
 
 
 ## 📚 Study Overview
