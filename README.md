@@ -37,7 +37,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 - **Time span**: Early Neolithic to Late Iron Age (~10,000–38 BP)
 - **Sample size**:  
   - 2,969 individuals (1,583 males, 1,386 females)  
-  - 71 cultural/temporal groups from 64 sites  
+  - 72 cultural/temporal groups from 63 sites  
 - **Data sources**:  
   - New measurements (5 highland + 2 lowland sites)  
   - Published osteometric datasets  
