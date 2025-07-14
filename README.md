@@ -29,7 +29,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 ```
 
 > **Note:** This repository uses male femur length as an example to illustrate the modelling process.
->> The same workflow applies to other traits and both sexes by simply modifying the predicted variable. (e.g., male femur length to female crural index).
+>> The same workflow applies to all traits and sexes by simply changing the predicted variable (e.g., male femur length to female crural index); additional scripts are therefore omitted to avoid duplication..
 
 
 ## 📚 Study Overview
