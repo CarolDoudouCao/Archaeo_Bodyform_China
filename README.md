@@ -4,11 +4,19 @@
 This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
 
 ## 📂 Repository Structure
--**Data** stored in: _data/_
 
--**Script**s in: _scripts/
+- **Data** (`/data/`)  
+  Contains archaeological metadata (e.g., group names, site coordinates, time periods) and individual-level osteometric measurements (e.g., male FXL examples, computed indices such as BI and CI).
 
--**Output figures and results** in: _output/_
+- **Scripts** (`/scripts/`)  
+  R scripts for data cleaning, Bayesian modeling, spatial predictions, effect plotting, and figure generation.
+
+- **Output** (`/output/`)  
+  Includes final model outputs such as posterior estimates, coefficient summaries, and supplementary data tables.
+
+- **Figures** (`/figures/`)  
+  Contains visual outputs used in Chapter 7 of the thesis, including maps, posterior plots, and temporal trend figures.
+
 
 ## 📚 Study Overview
 
