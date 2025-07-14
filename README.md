@@ -19,7 +19,7 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   └── 06_figures_generation.R                    # Compile and export final publication figures
 │
 ├── output/                                        # Tables and figures
-│   ├── regression_coefficients                    # Posterior summaries of fixed effects
+│   ├── regression_coefficients/                   # CSV files with posterior summaries of fixed effects
 │   ├── map_and_timeline/                          # Maps and chronological figures
 │   ├── predictive_surfaces/                       # Spatial prediction surfaces
 │   ├── posterior_draws/                           # Fixed and random effects
