@@ -3,23 +3,6 @@
 
 This repository supports Chapter 7 of my PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
 
-## 📚 Study Overview
-
-- **Time span**: Early Neolithic to Late Iron Age (~10,000–38 BP)
-- **Sample size**:  
-  - 2,969 individuals (1,583 males, 1,386 females)  
-  - 71 cultural/temporal groups from 64 sites  
-- **Data sources**:  
-  - New measurements (5 highland + 2 lowland sites)  
-  - Published osteometric datasets  
-  - Climate data from WorldClim v2.1
-
-### 💡 Research Questions
-- How did body size and proportions (e.g., femur length, crural index) vary across space and time?
-- Do altitude and climatic conditions (temperature, precipitation) correlate with skeletal variation?
-- What do inter-limb and intra-limb differences reveal about adaptation and variation in ancient Chinese populations?
-
-
 ## 📂 Repository Structure
 
 ```text
@@ -47,6 +30,22 @@ This repository supports Chapter 7 of my PhD thesis _Adaptation at High Altitude
 │
 └── README.md
 ```
+
+## 📚 Study Overview
+
+- **Time span**: Early Neolithic to Late Iron Age (~10,000–38 BP)
+- **Sample size**:  
+  - 2,969 individuals (1,583 males, 1,386 females)  
+  - 71 cultural/temporal groups from 64 sites  
+- **Data sources**:  
+  - New measurements (5 highland + 2 lowland sites)  
+  - Published osteometric datasets  
+  - Climate data from WorldClim v2.1
+
+### 💡 Research Questions
+- How did body size and proportions (e.g., femur length, crural index) vary across space and time?
+- Do altitude and climatic conditions (temperature, precipitation) correlate with skeletal variation?
+- What do inter-limb and intra-limb differences reveal about adaptation and variation in ancient Chinese populations?
 
 ## 🧪 Data Description
 
