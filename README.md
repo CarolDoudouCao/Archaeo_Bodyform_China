@@ -4,7 +4,6 @@
 This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
 
 ## 📂 Repository Structure
-## 📂 Repository Structure
 
 ```text
 ├── data/
@@ -19,9 +18,17 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 │   ├── 05_marginal_effects.R                      # Conditional effect plots for each predictor
 │   └── 06_figures_generation.R                    # Compile and export final publication figures
 │
-└── output/                                        # Model output figures and tables
+├── output/                                        # Tables and figures
+│   ├── regression_coefficients.csv                # Posterior summaries of fixed effects
+│   ├── map and timeline     
+│   ├── predictive surfaces
+│   ├── posterior draws (fixed and random)
+│   └── temporal trend plots (marginal_effects)
+│
+└── README.md     
 
 ```
+> **Note:** This repository includes only male FXL examples; all scripts  are applicable to both sexes and traits, but other scripts and outputs are omitted to avoid redundancy.
 
 ## 📚 Study Overview
 
