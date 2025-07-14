@@ -174,27 +174,6 @@ Three prediction maps were generated:
 - Environmental rasters were extracted from **WorldClim v2.1** at 30 arc-second resolution  
 - Posterior draws and conditional effect plots were generated using `tidybayes`
 
-## 📊 Figures (Chapter 7 Outputs)
-
-The following figures were generated from this study and correspond to those presented in Chapter 7 of the thesis:
-
-| Figure No. | Title                                                                                     | 
-|------------|--------------------------------------------------------------------------------------------|
-| 7.1        | Geographical Divisions and Suggested Population Exchanges in Ancient China                | 
-| 7.2        | Timeline of China’s Major Chronological Periods and Dynasties                              | 
-| 7.3        | Locations of Archaeological Groups by Time Period and Sample Size                          | 
-| 7.4        | Predicted Spatial Variation in Male Lower Limb Size and Proportions                        | 
-| 7.5        | Predicted Spatial Variation in Male Upper Limb Size and Proportions                        | 
-| 7.6        | Predicted Spatial Variation in Female Lower Limb Size and Proportions                      | 
-| 7.7        | Predicted Spatial Variation in Female Upper Limb Size and Proportions                      | 
-| 7.8        | Predicted Temporal Trends in Maximum Femoral Length (FXL) and Femoral Head Diameter (FHD) | 
-| 7.9        | Predicted Temporal Trends in Brachial Index (BI) and Crural Index (CI)                     |
-| 7.10       | Posterior Distributions of Fixed Effects on Lower Limb Dimensions and Proportions          | 
-| 7.11       | Posterior Distributions of Fixed Effects on Upper Limb Dimensions and Proportions          | 
-| 7.12       | Posterior Estimates of Group-Level Intercepts for Male Femoral Length (FXL)                |
-| 7.13       | Posterior Estimates of Group-Level Intercepts for Female Femoral Length (FXL)              | 
-
-> 📁 All figure files are available in the `figures/` directory as `.png`or `.tiff` images. 
 
 ## 🛠️ Software & Key Packages
 
