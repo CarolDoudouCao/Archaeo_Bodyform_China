@@ -164,17 +164,6 @@ Three prediction maps were generated:
 - Environmental rasters were extracted from **WorldClim v2.1** at 30 arc-second resolution  
 - Posterior draws and conditional effect plots were generated using `tidybayes`
 
-## 🛠️ Software & Key Packages
-
-The analysis was conducted in R (≥ 4.2) using the following core packages:
-
-- `brms`, `rstan` – Bayesian modeling via Stan and HMC sampling  
-- `tidyverse` – Data wrangling and plotting (`dplyr`, `ggplot2`, `readr`, etc.)  
-- `sf`, `terra`, `raster` – Spatial data handling and environmental extraction  
-- `furrr` – Parallelised imputation–modeling workflow across multiple cores  
-- `tidybayes` – Posterior summarization, uncertainty visualisation  
-- `patchwork`, `cowplot` – Plot arrangement and multi-panel figure layout
-
 ## 📊 Figures (Chapter 7 Outputs)
 
 The following figures were generated from this study and correspond to those presented in Chapter 7 of the thesis:
@@ -196,6 +185,17 @@ The following figures were generated from this study and correspond to those pre
 | 7.13       | Posterior Estimates of Group-Level Intercepts for Female Femoral Length (FXL)              | 
 
 > 📁 All figure files are available in the `figures/` directory as `.png`or `.tiff` images. 
+
+## 🛠️ Software & Key Packages
+
+The analysis was conducted in R (≥ 4.2) using the following core packages:
+
+- `brms`, `rstan` – Bayesian modeling via Stan and HMC sampling  
+- `tidyverse` – Data wrangling and plotting (`dplyr`, `ggplot2`, `readr`, etc.)  
+- `sf`, `terra`, `raster` – Spatial data handling and environmental extraction  
+- `furrr` – Parallelised imputation–modeling workflow across multiple cores  
+- `tidybayes` – Posterior summarization, uncertainty visualisation  
+- `patchwork`, `cowplot` – Plot arrangement and multi-panel figure layout
 
 ## 📌 Citation and Credits
 
