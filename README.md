@@ -8,11 +8,11 @@ This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at Hig
 ```text
 ├── data/
 │   ├── archaeological_metadata.csv                # Site metadata: group names, periods, and data sources
-│   └── individual_limb_measurements_indices.csv   # Osteometric data (e.g., male FXL example) with computed BI and CI
+│   └── individual_limb_measurements_indices.csv   # Osteometric data with computed BI and CI
 │
 ├── scripts/
 │   ├── 01_data_preparation.R                      # Clean and standardise raw and metadata
-│   ├── 02_bayesian_modeling.R                     # Fit Bayesian GAMMs with brms
+│   ├── 02_bayesian_modeling.R                     # Fit Bayesian GAMMs with brms (e.g., male FXL example) 
 │   ├── 03_prediction_spatiotemporal_plots.R       # Generate spatial prediction maps
 │   ├── 04_fixed_and_random_effects_plotting.R     # Extract and plot model effects
 │   └── 05_conditional_effects.R                   # Conditional effect plots for each predictor
