@@ -1,7 +1,7 @@
 
 # Tracking Spatial and Temporal Variation in Body Size and Proportions across Ancient Chinese Groups
 
-This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025). It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
+This repository supports Chapter 7 of Doudou Cao's PhD thesis _Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations_ (University of Cambridge, 2025), supervised by Dr. Emma Pomeroy. It explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
 
 ## 📂 Repository Structure
 
