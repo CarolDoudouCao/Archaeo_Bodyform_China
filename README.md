@@ -7,8 +7,6 @@ This repository accompanies **Chapter 7** of Doudou Cao’s PhD thesis, *Adaptat
 
 Special thanks to **Dr. Enrico Crema** for his guidance and support in developing the spatial and statistical modelling presented in this chapter.
 
-This research explores tempo-spatial trends in limb length and body proportions across 71 archaeological groups in China from the Early Neolithic to the Late Iron Age.
-
 ## 📂 Repository Structure
 
 ```text
