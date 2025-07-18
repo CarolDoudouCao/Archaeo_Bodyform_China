@@ -5,7 +5,7 @@
 
 This repository accompanies **Chapter 7** of Doudou Cao’s PhD thesis, *Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations* (University of Cambridge, 2025), supervised by Dr. Emma Pomeroy. The chapter investigates spatial and temporal trends in limb length and body proportions across 71 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age.
 
-Special thanks to **Dr. Enrico Crema** for his guidance and support in developing the spatial and statistical modelling presented in this chapter.
+Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support in developing the spatial and statistical modelling presented in this chapter.
 
 ## 📂 Repository Structure
 
