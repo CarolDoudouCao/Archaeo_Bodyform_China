@@ -197,7 +197,9 @@ The analysis was conducted in **R (≥ 4.2)** using the following core packages:
 
 If you use this code, data structure, or methodology, please cite:
 
-Cao, D. (2025). Adaptation at high altitudes: A comparative analysis of body size and proportions in ancient Tibetan and lowland Chinese populations (Unpublished doctoral dissertation). University of Cambridge.
+### Reference (APA format)
+
+Cao, D. (2025). *Adaptation at high altitudes: A comparative analysis of body size and proportions in ancient Tibetan and lowland Chinese populations* (Unpublished doctoral dissertation). University of Cambridge.
 
 ## 📫 Contact
 
