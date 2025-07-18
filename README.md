@@ -46,7 +46,6 @@ Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support i
   - New measurements (5 highland + 2 lowland sites)  
   - Published osteometric datasets  
   - Climate data from WorldClim v2.1
-<img width="860" height="612" alt="image" src="https://github.com/user-attachments/assets/d57c20f9-3be7-4a25-98f0-836bf7147e10" />
 
 ### 💡 Research Questions
 - How did body size and proportions (e.g., femur length, crural index) vary across space and time?
@@ -87,7 +86,11 @@ Measurements included:
 - The **Erlitou culture**, often associated with the legendary **Xia Dynasty**,  is included in Period 3 due to its transitional position between Neolithic and Bronze Age phases.
 - These categories integrate archaeological chronology with major cultural and dynastic phases to contextualise spatiotemporal variation in the dataset.
 - For approximate conversion: **1,000 BP ≈ 950 CE** (assuming 1950 as the reference point).
-
+  
+<img width="860" height="612" alt="image" src="https://github.com/user-attachments/assets/d57c20f9-3be7-4a25-98f0-836bf7147e10" />
+ Locations of Archaeological Groups by Time Period and Sample Size
+1. Early Neolithic; 2. Middle Neolithic; 3. Late Neolithic; 4. Bronze-Early Iron Age; 5. Early-Mid Iron Age; 6. Middle Iron Age; 7. Late Iron Age
+   
 ### 🧬 Sex Estimation Protocols
 
 - **Newly collected groups** (e.g., Gaoshan, Phiyang-Dungkar, Sding-Chung):  
