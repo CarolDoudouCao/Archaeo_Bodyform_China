@@ -46,6 +46,7 @@ Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support i
   - New measurements (5 highland + 2 lowland sites)  
   - Published osteometric datasets  
   - Climate data from WorldClim v2.1
+<img width="860" height="612" alt="image" src="https://github.com/user-attachments/assets/d57c20f9-3be7-4a25-98f0-836bf7147e10" />
 
 ### 💡 Research Questions
 - How did body size and proportions (e.g., femur length, crural index) vary across space and time?
