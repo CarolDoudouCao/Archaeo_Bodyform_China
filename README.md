@@ -12,9 +12,9 @@ This repository accompanies the paper, *Spatiotemporal Variation in Human Body F
 ├── data/
 │   ├── ancient_chinese_detail_for_mixed_effects_2025May_1.xlsx   # Osteometric data
 │   ├── archaeological_metadata.csv                               # Site metadata: group names, periods, and data sources
-│   ├── climatic data                                             # From WorldClim 2 dataset, temperatures, precipitations and elevation
-│   ├── NE1_HR_LC_SR_W_DR.tif                                     # World map
-│   └── bou1_4p.shp                                               # China shape
+│   ├── climatic data   # **Download from** https://www.worldclim.org/data/bioclim.html, and the specific tiff for each variable is noted below
+│   ├── NE1_HR_LC_SR_W_DR.tif                 # World map, pls download from https://www.naturalearthdata.com/downloads/50m-raster-data/
+│   └── bou1_4p.shp                           # China shape
 │
 ├── scripts/
 │   ├── 01_Example_ancient_chinese_body_size_analysis_male_fxl.R                  # Example codes for male FXL (R scripts)
