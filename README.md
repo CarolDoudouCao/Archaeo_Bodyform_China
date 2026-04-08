@@ -5,7 +5,6 @@
 
 This repository accompanies the paper, *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. The paper investigates spatial and temporal trends in limb length and body proportions across 71 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age.
 
-Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support in developing the spatial and statistical modelling presented in this chapter.
 
 ## 📂 Repository Structure
 
