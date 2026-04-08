@@ -232,7 +232,10 @@ If you use this code, data structure, or methodology, please cite:
 ## 📫 Contact
 
 Doudou Cao  
+
 Institute for the Humanities and Social Sciences (IHSS)
+
 University of Hong Kong
+
 ✉️ dcao@hku.hk
 
