@@ -12,7 +12,7 @@ This repository accompanies the paper, *Spatiotemporal Variation in Human Body F
 ├── data/
 │   ├── ancient_chinese_detail_for_mixed_effects_2025May_1.xlsx   # Osteometric data
 │   ├── archaeological_metadata.csv                               # Site metadata: group names, periods, and data sources
-│   ├── climatic data    _Download from_ https://www.worldclim.org/data/bioclim.html, and the specific tiff for each variable is noted below
+│   ├── climatic data    # Download from https://www.worldclim.org/data/bioclim.html, and the specific tiff for each variable is noted below
 │   ├── NE1_HR_LC_SR_W_DR.tif                 # World map, pls download from https://www.naturalearthdata.com/downloads/50m-raster-data/
 │   └── bou1_4p.shp                           # China shape
 │
