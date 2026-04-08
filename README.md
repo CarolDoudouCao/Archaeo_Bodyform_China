@@ -127,8 +127,10 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
     - `E_M_Iron`
     - `M_Iron`
     - `L_Iron`
+      
 **Coding**:
   - Period was treated as a factor with sum-to-zero contrasts (`contr.sum`), so period estimates represent deviations relative to the overall mean rather than a single reference category
+    
 **Temporal visualisation**:
   - Population-level conditional effects for period were extracted using `conditional_effects(..., re_formula = NA)`
   - Temporal summaries were displayed with medians and 89% credible intervals
