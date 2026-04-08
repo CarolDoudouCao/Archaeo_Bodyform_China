@@ -209,7 +209,7 @@ Trait_z ~ period +
 - Median predicted surface
 - Lower 90% bound
 - Upper 90% bound
-- 
+  
 **📊 Additional Outputs**
 
 **Temporal effects**:
