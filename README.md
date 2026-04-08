@@ -128,24 +128,24 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
     - `E_M_Iron`
     - `M_Iron`
     - `L_Iron`
-- **Coding**:
+**Coding**:
   - Period was treated as a factor with sum-to-zero contrasts (`contr.sum`), so period estimates represent deviations relative to the overall mean rather than a single reference category
-- **Temporal visualisation**:
+**Temporal visualisation**:
   - Population-level conditional effects for period were extracted using `conditional_effects(..., re_formula = NA)`
   - Temporal summaries were displayed with medians and 89% credible intervals
 
 ### 🌍 Spatial & Environmental Predictors
 
-- **Environmental fixed effects** (all z-scored within sex):
+**Environmental fixed effects** (all z-scored within sex):
   - `mintemp_scaled`: minimum temperature
   - `maxtemp_scaled`: maximum temperature
   - `minprecip_scaled`: minimum precipitation
   - `maxprecip_scaled`: maximum precipitation
   - `altitude_scaled`: altitude
-- **Spatial smooth**:
+**Spatial smooth**:
   - `t2(longitude_scaled, latitude_scaled)`
   - A two-dimensional tensor-product smooth was used to model broad nonlinear spatial structure
-- **Group-level term**:
+**Group-level term**:
   - `(1 | site_id)`
   - A varying intercept for archaeological site was included to capture clustering within sites and allow partial pooling across uneven sample sizes
 
@@ -185,29 +185,39 @@ Trait_z ~ period +
 **Prediction grid**: 
 - Spatial predictions were generated over a regular grid spanning longitude 70–140 and latitude 10–60
 - The grid used 350 × 350 locations before expansion across periods
+  
 **Environmental extraction**: 
 - Raster values for temperature, precipitation, and elevation were extracted from WorldClim-derived layers and elevation rasters
+  
 **Period expansion**:
 - The base grid was crossed with all seven archaeological periods so that predictions were generated for each period-specific surface
+  
 **Prediction level**:
 - Predictions were generated from the population-level component of the model (re_formula = NA), excluding site-specific random effects
+  
 **Posterior summaries**:
 - Predictions were computed using add_epred_draws() with 200 posterior draws per chunk
 - Median fitted values and 90% posterior intervals were then summarised for each grid cell and period
+  
 **All-period summary surface**:
 - For spatial visualisation, period-specific predictions were averaged across the seven modelled periods at each grid cell to produce an overall summary surface
+  
 **Masking**:
 - Final mapped surfaces were restricted using a buffered convex hull based on observed site locations, reducing extrapolation far beyond the sampled regions
+  
 **Mapped outputs**:
 - Median predicted surface
 - Lower 90% bound
 - Upper 90% bound
 - 
 **📊 Additional Outputs**
+
 **Temporal effects**:
 - Estimated marginal effects for archaeological periods with 89% credible intervals
+  
 **Environmental coefficients**:
 - Posterior distributions of fixed effects summarised using half-eye plots and interval estimates
+  
 **Site-level deviations**:
 - Posterior distributions of site-specific random intercepts were extracted and plotted to show group-level departures from the overall modelled pattern
 
