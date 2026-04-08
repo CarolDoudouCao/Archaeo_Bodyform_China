@@ -138,14 +138,17 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
 ### 🌍 Spatial & Environmental Predictors
 
 **Environmental fixed effects** (all z-scored within sex):
-  - `mintemp_scaled`: minimum temperature
-  - `maxtemp_scaled`: maximum temperature
-  - `minprecip_scaled`: minimum precipitation
-  - `maxprecip_scaled`: maximum precipitation
-  - `altitude_scaled`: altitude
+**Please download from** https://www.worldclim.org/data/bioclim.html, and the specific tiff for each variable is noted below
+  - `mintemp_scaled`: minimum temperature         # wc2.1_30s_bio_6.tif 
+  - `maxtemp_scaled`: maximum temperature         # wc2.1_30s_bio_5.tif
+  - `minprecip_scaled`: minimum precipitation     # wc2.1_30s_bio_14.tif
+  - `maxprecip_scaled`: maximum precipitation     # wc2.1_30s_bio_13.tif
+  - `altitude_scaled`: altitude                   # wc2.1_30s_elev.tif
+    
 **Spatial smooth**:
   - `t2(longitude_scaled, latitude_scaled)`
   - A two-dimensional tensor-product smooth was used to model broad nonlinear spatial structure
+    
 **Group-level term**:
   - `(1 | site_id)`
   - A varying intercept for archaeological site was included to capture clustering within sites and allow partial pooling across uneven sample sizes
