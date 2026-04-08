@@ -3,7 +3,7 @@
 
 ## About This Repository
 
-This repository accompanies **Chapter 7** of Doudou Cao’s PhD thesis, *Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations* (University of Cambridge, 2025), supervised by Dr. Emma Pomeroy. The chapter investigates spatial and temporal trends in limb length and body proportions across 71 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age.
+This repository accompanies the paper, *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. The paper investigates spatial and temporal trends in limb length and body proportions across 71 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age.
 
 Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support in developing the spatial and statistical modelling presented in this chapter.
 
@@ -11,22 +11,23 @@ Special thanks to **Dr. Enrico Crema** for his invaluable guidance and support i
 
 ```text
 ├── data/
-│   ├── archaeological_metadata.csv                # Site metadata: group names, periods, and data sources
-│   └── individual_limb_measurements_indices.csv   # Osteometric data with computed BI and CI
+│   ├── ancient_chinese_detail_for_mixed_effects_2025May_1.xlsx   # Osteometric data
+│   ├── archaeological_metadata.csv                               # Site metadata: group names, periods, and data sources
+│   ├── climatic data                                             # From WorldClim 2 dataset, temperatures, precipitations and elevation
+│   ├── NE1_HR_LC_SR_W_DR.tif                                     # World map
+│   └── bou1_4p.shp                                               # China shape
 │
 ├── scripts/
-│   ├── 01_data_preparation.R                      # Clean and standardise raw and metadata
-│   ├── 02_bayesian_modeling.R                     # Fit Bayesian GAMMs with brms (e.g., male FXL example) 
-│   ├── 03_prediction_spatiotemporal_plots.R       # Generate spatial prediction maps
-│   ├── 04_fixed_and_random_effects_plotting.R     # Extract and plot model effects
-│   └── 05_conditional_effects.R                   # Conditional effect plots for each predictor
+│   ├── 01_Example_ancient_chinese_body_size_analysis_male_fxl.R                  # Example codes for male FXL (R scripts)
+│   ├── 02_example_codes_male_fxl.docx                                            # Example codes for male FXL (doc file) 
+│   └── 03_Example_ancient_chinese_body_size_analysis_male_fxl.html               # Example codes for male FXL (rendered html) 
 │
-├── output/                                        # Tables and figures
-│   ├── regression_coefficients/                   # CSV files with posterior summaries of fixed effects
-│   ├── predictive_surfaces/                       # Spatial prediction surfaces
-│   ├── posterior_draws/                           # Fixed and random effects
-│   ├── temporal_trends/                           # Conditional effect plots for temperal effects
-│   └── environmental_effects/                     # Conditional effect plots for environmental variables
+├── output/                                                  # Figures
+│   ├── FXL_male_period_CE_89PI.png                          # Temporal trend
+│   ├── male_FXL_fixed_effects_89PI.png                      # Fixed effects
+│   ├── male_FXL_site_random_intercepts.png                  # Random effects
+│   ├── male_FXL_spatial_ALLperiods_median_only.png          # Spatial prediction surfaces (median)
+│   └── male_FXL_spatial_all_periods_lower_upper_PI90.png    # Spatial prediction surfaces (upper and loower 90% boundaries)
 │
 └── README.md                                      # Project overview and documentation
 ```
@@ -107,108 +108,121 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
 
 ### 🧠 Model Overview
 
-- **Traits modeled**: Femur length (FXL), femoral head diameter (FHD), tibiae length (TXL), humerus length (HXL), radius length (RXL), crural and brachial indices (see definations above)
-- **Model type**: Bayesian GAMMs via `brms` and `Stan`, using Hamiltonian Monte Carlo (HMC) sampling  
-- **Sex-specific models**: All traits were modeled separately for males and females
-- **Standardisation**:  
-  - All predictors and outcome variables were z-scored to improve numerical stability, aid model convergence, and enable effect size comparability across traits  
-  - Time was modeled as a penalised spline on imputed calendar-year estimates; models were fitted across 50 imputed datasets to account for chronological uncertainty
+- **Traits modelled**: Femur length (FXL), femoral head diameter (FHD), tibia length (TXL), humerus length (HXL), radius length (RXL), and limb proportion indices including the crural index and brachial index
+- **Model type**: Bayesian generalised additive mixed models (GAMMs) fitted in `brms` using `Stan` and Hamiltonian Monte Carlo (HMC)
+- **Sex-specific models**: All models were fitted separately for males and females
+- **Standardisation**:
+  - Outcome variables and continuous predictors were z-scored within each sex-specific analytical dataset
+  - Standardisation was used to improve numerical stability, support model convergence, and make effect sizes more comparable across predictors and traits
+
 
 ### 📅 Temporal Modeling
 
-- **Time variable**:  
-  - Calendar-year estimates (in years BP) were sampled from group-level time ranges  
-  - Ranges were based on either calibrated radiocarbon intervals or archaeological period boundaries  
-  - Models were fit to 50 imputed datasets to incorporate chronological uncertainty
-- **Spline smoothing**:  
-  - Time modeled as `s(date_z, k = 10)` to capture non-linear trends without arbitrary binning
+- **Time structure**:
+  - Temporal variation was modelled using a categorical archaeological period variable rather than continuous imputed calendar dates
+  - The period levels were ordered as:
+    - `E_Neo`
+    - `M_Neo`
+    - `L_Neo`
+    - `Bronze`
+    - `E_M_Iron`
+    - `M_Iron`
+    - `L_Iron`
+- **Coding**:
+  - Period was treated as a factor with sum-to-zero contrasts (`contr.sum`), so period estimates represent deviations relative to the overall mean rather than a single reference category
+- **Temporal visualisation**:
+  - Population-level conditional effects for period were extracted using `conditional_effects(..., re_formula = NA)`
+  - Temporal summaries were displayed with medians and 89% credible intervals
 
 ### 🌍 Spatial & Environmental Predictors
 
-- **Fixed effects** (all standardised):
-  - `mintemp_z`: Minimum temperature (coldest month)
-  - `maxtemp_z`: Maximum temperature (warmest month)
-  - `minprecip_z`: Minimum precipitation (driest month)
-  - `maxprecip_z`: Maximum precipitation (wettest month)
-  - `altitude_z`: Site altitude
-
-- **Spatial smooth**:  
-  - `t2(lon_z, lat_z)`: A 2D tensor-product spline modeling spatial autocorrelation using standardised longitude and latitude
-
-- **Random effect**:  
-  - `(1 | group)`: A random intercept for archaeological group, capturing group-level structure and allowing partial pooling
+- **Environmental fixed effects** (all z-scored within sex):
+  - `mintemp_scaled`: minimum temperature
+  - `maxtemp_scaled`: maximum temperature
+  - `minprecip_scaled`: minimum precipitation
+  - `maxprecip_scaled`: maximum precipitation
+  - `altitude_scaled`: altitude
+- **Spatial smooth**:
+  - `t2(longitude_scaled, latitude_scaled)`
+  - A two-dimensional tensor-product smooth was used to model broad nonlinear spatial structure
+- **Group-level term**:
+  - `(1 | site_id)`
+  - A varying intercept for archaeological site was included to capture clustering within sites and allow partial pooling across uneven sample sizes
 
 ---
 
 ### 📐 Model Formula (Example)
 
 ```text
-Trait_z ~ s(date_z, k = 10) + t2(lon_z, lat_z) +
-β₁·mintemp_z + β₂·maxtemp_z +
-β₃·minprecip_z + β₄·maxprecip_z +
-β₅·altitude_z + (1 | group)
+Trait_z ~ period +
+          t2(longitude_scaled, latitude_scaled) +
+          mintemp_scaled + maxtemp_scaled +
+          minprecip_scaled + maxprecip_scaled +
+          altitude_scaled +
+          (1 | site_id)
 ```
 
 - **Trait_z**: The z-scored skeletal measurement or index (e.g., FXL_z, BI_z)
 
-- **s(date_z, k = 10)**: A univariate spline capturing non-linear temporal trends using the standardised imputed calendar date; k = 10 limits flexibility to avoid overfitting
+- **period**:  ordered archaeological period factor fitted with sum coding
 
-- **t2(lon_z, lat_z)**: A 2D thin-plate spline modeling spatial autocorrelation using standardised longitude and latitude
+- **t2(longitude_scaled, latitude_scaled)**: tensor-product spatial smooth for broad geographic structure
 
-- **β₁–β₅**: Coefficients for fixed effects of environmental variables (standardised)
+- **mintemp_scaled to altitude_scaled**: standardised environmental covariates
 
-- **(1 | group)**: A random intercept for archaeological group, accounting for shared variation within cultural or regional groups and allowing partial pooling across sites with different sample sizes
+- **(1 | site_id)**: varying intercept for archaeological site
 
-- **Likelihood**: Student-t (robust to outliers)
+- **Likelihood**: Student-𝑡, used to provide robustness to outliers and heavy-tailed variation
 - **Priors**: Weakly informative  
-  - Fixed effects: `Normal(0, 1)`  
-  - Random and residual SDs: `Student-t(3, 0, 1)`  
-  - Spline smoothness: `Exponential(1)`
+  - Fixed effects: `Normal(0, 1)`
+  - Intercept: `Normal(0, 1)`
+  - Residual SD (sigma): `Student-t(3, 0, 1)`
+  - Smoothness parameters (sds): `Exponential(1)`
+  - Degrees of freedom (nu): `Gamma(2, 0.1)`
 
 
 ### 🗺️ Prediction & Visualisation
-
-Three prediction maps were generated:
-
-1. **Full model**: includes spatial and environmental effects  
-2. **Spatial-only**: holds climate variables constant at their mean (z = 0)  
-3. **Environmental effect**: difference between full and spatial-only models
-
-- Predictions were computed for a 400 × 400 grid (~16,000 locations) across China  
-- Environmental rasters were extracted from **WorldClim v2.1** at 30 arc-second resolution  
-- Posterior draws and conditional effect plots were generated using `tidybayes`
-
+**Prediction grid**: 
+- Spatial predictions were generated over a regular grid spanning longitude 70–140 and latitude 10–60
+- The grid used 350 × 350 locations before expansion across periods
+**Environmental extraction**: 
+- Raster values for temperature, precipitation, and elevation were extracted from WorldClim-derived layers and elevation rasters
+**Period expansion**:
+- The base grid was crossed with all seven archaeological periods so that predictions were generated for each period-specific surface
+**Prediction level**:
+- Predictions were generated from the population-level component of the model (re_formula = NA), excluding site-specific random effects
+**Posterior summaries**:
+- Predictions were computed using add_epred_draws() with 200 posterior draws per chunk
+- Median fitted values and 90% posterior intervals were then summarised for each grid cell and period
+**All-period summary surface**:
+- For spatial visualisation, period-specific predictions were averaged across the seven modelled periods at each grid cell to produce an overall summary surface
+**Masking**:
+- Final mapped surfaces were restricted using a buffered convex hull based on observed site locations, reducing extrapolation far beyond the sampled regions
+**Mapped outputs**:
+- Median predicted surface
+- Lower 90% bound
+- Upper 90% bound
+- 
+**📊 Additional Outputs**
+**Temporal effects**:
+- Estimated marginal effects for archaeological periods with 89% credible intervals
+**Environmental coefficients**:
+- Posterior distributions of fixed effects summarised using half-eye plots and interval estimates
+**Site-level deviations**:
+- Posterior distributions of site-specific random intercepts were extracted and plotted to show group-level departures from the overall modelled pattern
 
 ## 🛠️ Software & Key Packages
-
-The analysis was conducted in **R (≥ 4.2)** using the following core packages:
-
-- `brms`, `rstan` – Bayesian modeling via Stan and HMC sampling  
-- `tidyverse` – Data wrangling and plotting (`dplyr`, `ggplot2`, `readr`, etc.)  
-- `sf`, `terra`, `raster` – Spatial data handling and environmental extraction  
-- `sp` – Spatial points creation for raster-based climate extraction  
-- `furrr` – Parallelised imputation–modeling workflow across multiple cores  
-- `posterior` – Efficient manipulation and thinning of Stan draws  
-- `cmdstanr` – On-disk sampling backend for `brms` models (faster & memory efficient)  
-- `tidybayes` – Posterior summarization and uncertainty visualisation  
-- `mgcv` – Spline terms (`s()`, `t2()`) in semiparametric models  
-- `here` – Project-rooted file path management  
-- `patchwork`, `cowplot` – Plot arrangement and multi-panel figure layout  
-- `RColorBrewer` – Color palettes for maps and model coefficient plots  
+The analysis was conducted in **R**. The modelling workflow was built primarily around **brms** and **Stan**, with additional packages used for data processing (**tidyverse**, **purrr**), posterior summarisation and visualisation (**tidybayes**, **bayesplot**, **broom.mixed**, **patchwork**), and spatial data handling and mapping (**raster**, **terra**, **sf**, **sp**, **tidyterra**, **elevatr**).
 
 
 ## 📌 Citation and Credits
 
 If you use this code, data structure, or methodology, please cite:
 
-### Reference (APA format)
-
-Cao, D. (2025). *Adaptation at high altitudes: A comparative analysis of body size and proportions in ancient Tibetan and lowland Chinese populations* (Unpublished doctoral dissertation). University of Cambridge.
-
 ## 📫 Contact
 
 Doudou Cao  
-PhD Candidate, Biological Anthropology  
-University of Cambridge  
-Email: [dc798@cam.ac.uk]
+Institute for the Humanities and Social Sciences (IHSS)
+University of Hong Kong
+✉️ dcao@hku.hk
 
