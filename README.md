@@ -17,16 +17,16 @@ This repository accompanies the paper, *Spatiotemporal Variation in Human Body F
 │   └── bou1_4p.shp                           # China shape
 │
 ├── scripts/
-│   ├── 01_Example_ancient_chinese_body_size_analysis_male_fxl.R                  # Example codes for male FXL (R scripts)
-│   ├── 02_example_codes_male_fxl.docx                                            # Example codes for male FXL (doc file) 
-│   └── 03_Example_ancient_chinese_body_size_analysis_male_fxl.html               # Example codes for male FXL (rendered html) 
+│   ├── Example_ancient_chinese_body_size_analysis_male_fxl.R                  # Example codes for male FXL (R scripts)
+│   ├── example_codes_male_fxl.docx                                            # Example codes for male FXL (doc file) 
+│   └── Example_ancient_chinese_body_size_analysis_male_fxl.html               # Example codes for male FXL (rendered html) 
 │
 ├── output/                                                  # Figures
 │   ├── FXL_male_period_CE_89PI.png                          # Temporal trend
 │   ├── male_FXL_fixed_effects_89PI.png                      # Fixed effects
 │   ├── male_FXL_site_random_intercepts.png                  # Random effects
 │   ├── male_FXL_spatial_ALLperiods_median_only.png          # Spatial prediction surfaces (median)
-│   └── male_FXL_spatial_all_periods_lower_upper_PI90.png    # Spatial prediction surfaces (upper and loower 90% boundaries)
+│   └── male_FXL_spatial_all_periods_lower_upper_PI90.png    # Spatial prediction surfaces (upper and lower 90% boundaries)
 │
 └── README.md                                      # Project overview and documentation
 ```
