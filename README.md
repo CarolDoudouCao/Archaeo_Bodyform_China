@@ -1,5 +1,5 @@
 
-# Tracking Spatial and Temporal Variation in Body Size and Proportions across Ancient Chinese Groups
+# Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations
 
 ## About This Repository
 
