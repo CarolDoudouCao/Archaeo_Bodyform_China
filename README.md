@@ -90,7 +90,7 @@ Measurements included:
 ### 🧬 Sex Estimation Protocols
 
 - **Newly collected groups** (e.g., Gaoshan, Phiyang-Dungkar, Sding-Chung):  
-  - Used direct sex estimation by this study (Chapter 2 and 3)  
+  - Used direct sex estimation by Doudou Cao's PhD theis (Cao, 2025)  
 - **Published groups**:  
   - Used published sex estimates
 
