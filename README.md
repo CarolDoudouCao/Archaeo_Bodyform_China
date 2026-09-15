@@ -3,7 +3,7 @@
 
 ## About This Repository
 
-This repository accompanies the paper, *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. The paper investigates spatial and temporal trends in limb length and body proportions across 70 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age (~10,000–38 BP).
+This repository accompanies the paper, *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. The paper investigates spatial and temporal trends in limb length and body proportions across 72 archaeological groups in China, spanning from the Early Neolithic to the Late Iron Age (~10,000–38 BP).
 
 
 ## 📂 Repository Structure
@@ -22,8 +22,8 @@ This repository accompanies the paper, *Spatiotemporal Variation in Human Body F
 │   └── Example_ancient_chinese_body_size_analysis_male_fxl.html               # Example codes for male FXL (rendered html) 
 │
 ├── output/                                                  # Figures
-│   ├── FXL_male_period_CE_89PI.png                          # Temporal trend
-│   ├── male_FXL_fixed_effects_89PI.png                      # Fixed effects
+│   ├── FXL_male_period_CE_90PI.png                          # Temporal trend
+│   ├── male_FXL_fixed_effects_90PI.png                      # Fixed effects
 │   ├── male_FXL_site_random_intercepts.png                  # Random effects
 │   ├── male_FXL_spatial_ALLperiods_median_only.png          # Spatial prediction surfaces (median)
 │   └── male_FXL_spatial_all_periods_lower_upper_PI90.png    # Spatial prediction surfaces (upper and lower 90% boundaries)
@@ -40,10 +40,10 @@ This repository accompanies the paper, *Spatiotemporal Variation in Human Body F
 
 - **Time span**: Early Neolithic to Late Iron Age (~10,000–38 BP)
 - **Sample size**:  
-  - 2,969 individuals (1,583 males, 1,386 females)  
-  - 71 cultural/temporal groups from 64 sites  
+  - 2,931 individuals (1,566 males, 1,365 females)  
+  - 72 cultural/temporal groups from 64 sites  
 - **Data sources**:  
-  - New measurements (5 highland + 2 lowland sites)  
+  - New measurements (4 highland + 2 lowland sites)  
   - Published osteometric datasets  
   - Climate data from WorldClim v2.1
 
@@ -58,12 +58,12 @@ Measurements included:
 
 | Variable | Description | Sample Size |
 |----------|-------------|-------------|
-| FXL | Femur maximum length (proxy for stature) | 3,027 |
-| TXL | Tibia maximum length | 1,252 |
-| HXL | Humerus maximum length | 1,047 |
-| RXL | Radius maximum length | 803 |
-| FBL | Bicondylar femur length | 102 |
-| FHD | Femoral head diameter (proxy for body mass) | 1,587 |
+| FXL | Femur maximum length (proxy for stature) | 2,416 |
+| TXL | Tibia maximum length | 1,009 |
+| HXL | Humerus maximum length | 636 |
+| RXL | Radius maximum length | 493 |
+| FBL | Bicondylar femur length | 103 |
+| FHD | Femoral head diameter (proxy for body mass) | 1,118 |
 
 ### 🧍‍♂️ Indices Computed
 - **Brachial Index (BI)** = RXL / HXL
@@ -76,7 +76,7 @@ Measurements included:
 |--------|------------------------|-----------------|------------------------------|
 | 1      | Early Neolithic        | 9,000–7,000  | Early farming communities (e.g., Jiahu, Jiangjialiang) |
 | 2      | Middle Neolithic       | 7,000–4,500  | Agricultural intensification (e.g., Miaodigou, Qingtai) |
-| 3      | Late Neolithic         | 4,500–3,500  | Emergiing social inequalities (e.g., Mougou, **Erlitou [Xia?]**) |
+| 3      | Late Neolithic         | 4,500–3,500  | Emergiing social inequalities (e.g., **Erlitou [Xia?]**) |
 | 4      | Bronze–Early Iron Age  | 3,500–2,152  | Early states and metallurgy: Shang, Western Zhou, Spring–Autumn (pre-Qin) periods |
 | 5      | Early–Mid Iron Age     | 2,152–1,530  | Warring States, Qin, Western Han, Eastern Han |
 | 6      | Middle Iron Age        | 1,530–583    | Fragmentation and cosmopolitan empires: Three Kingdoms, Jin, Northern & Southern Dynasties, Sui, Tang, Song, Yuan |
@@ -133,7 +133,7 @@ This study employed **Bayesian Generalised Additive Mixed Models (GAMMs)** to in
     
 **Temporal visualisation**:
   - Population-level conditional effects for period were extracted using `conditional_effects(..., re_formula = NA)`
-  - Temporal summaries were displayed with medians and 89% credible intervals
+  - Temporal summaries were displayed with medians and 90% credible intervals
 
 ### 🌍 Spatial & Environmental Predictors
 
