@@ -17,12 +17,6 @@ Bayesian Generalised Additive Mixed Models (GAMMs) are used to examine temporal 
 │   ├── bodyform_data_AUDITED_v2.xlsx
 │   │   # Individual-level osteometric and contextual data
 │   │
-│   ├── climatic data/
-│   │   # WorldClim v2.1 bioclimatic and elevation layers
-│   │
-│   ├── NE1_HR_LC_SR_W_DR.tif
-│   │   # Natural Earth raster used for mapping
-│   │
 │   └── bou1_4p.shp
 │       # China boundary shapefile
 │
