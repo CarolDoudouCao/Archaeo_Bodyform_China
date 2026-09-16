@@ -23,12 +23,6 @@ Bayesian Generalised Additive Mixed Models (GAMMs) are used to examine temporal 
 ├── scirpts/
 │   ├── Example_ancient_chinese_body_size_analysis_male_fxl.R
 │   │   # Example R workflow for male femur maximum length
-│   │
-│   ├── Example_ancient_chinese_body_size_analysis_male_fxl.html
-│   │   # Rendered version of the example workflow
-│   │
-│   └── example_codes_male_fxl.docx
-│       # Example code in document format
 │
 ├── output/
 │   ├── FXL_male_period_CE_90PI.png
