@@ -14,11 +14,8 @@ Bayesian Generalised Additive Mixed Models (GAMMs) are used to examine temporal 
 
 ```text
 ├── data/
-│   ├── ancient_chinese_detail_for_mixed_effects_2025May_1.xlsx
+│   ├── bodyform_data_AUDITED_v2.xlsx
 │   │   # Individual-level osteometric and contextual data
-│   │
-│   ├── archaeological_metadata_2025.xlsx
-│   │   # Archaeological group metadata, chronology, and data sources
 │   │
 │   ├── climatic data/
 │   │   # WorldClim v2.1 bioclimatic and elevation layers
