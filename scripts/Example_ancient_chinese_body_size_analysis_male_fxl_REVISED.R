@@ -35,7 +35,9 @@ invisible(lapply(required_packages, function(pkg) {
 
 # 1. Import the dataset and prepare the data 
 library(readxl)
-ancient_chi_detail <- read_excel("ancient_chinese_detail_for_mixed_effects_2025May_1.xlsx")
+ancient_chi_detail <- read_excel(
+  here::here("data", "bodyform_data_AUDITED_v2.xlsx")
+)
 str(ancient_chi_detail)
 
 # Convert relevant columns to numeric
