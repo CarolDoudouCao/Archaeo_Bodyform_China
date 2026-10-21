@@ -1,539 +1,208 @@
 # Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations
 
-## About This Repository
-
-This repository accompanies the paper *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*.
-
-The study investigates spatial and temporal variation in limb length and body proportions across **2,931 individuals (1,566 males and 1,365 females)**, representing **71 site-period groups from 64 archaeological sites** in China. The dataset spans from the **Early Neolithic to the Late Imperial period** and includes both lowland and high-altitude populations.
-
-Bayesian Generalised Additive Mixed Models (GAMMs) are used to examine temporal trends, nonlinear spatial structure, environmental associations, and group-level variation while accounting for the hierarchical and uneven nature of archaeological skeletal data.
-
----
-
-## Repository Structure
-
-```text
-├── data/
-│   ├── bodyform_data_AUDITED_v2.xlsx
-│   │   # Individual-level osteometric and contextual data
-│   │
-│   └── bou1_4p.shp
-│       # China boundary shapefile
-│
-├── scirpts/
-│   ├── Example_ancient_chinese_body_size_analysis_male_fxl.R
-│   │   # Example R workflow for male femur maximum length
-│
-├── output/
-│   ├── FXL_male_period_CE_90CI.png
-│   ├── male_FXL_fixed_effects_90CI.png
-│   ├── male_FXL_site_random_intercepts.png
-│   ├── male_FXL_spatial_all_periods_posterior_median_primary_noSDC.png
-│   └── male_FXL_spatial_all_periods_lower_upper_CI90_primary_noSDC.png
-│
-└── README.md
-```
-
-> **Note:** The repository uses male femur maximum length (FXL) as an example to illustrate the modelling workflow. The same analytical structure was applied to the other skeletal traits and to female datasets, with the outcome variable and analytical sample changed accordingly.
-
----
-
-## Study Overview
-
-### Chronological coverage
-
-The study covers seven broad analytical periods:
-
-| Period                | Approximate date range | General archaeological / historical context                   |
-| --------------------- | ---------------------- | ------------------------------------------------------------- |
-| Early Neolithic       | ca. 7050–5050 BCE      | Early farming communities                                     |
-| Middle Neolithic      | ca. 5050–2550 BCE      | Expansion and intensification of farming                      |
-| Late Neolithic        | ca. 2550–1550 BCE      | Increasing settlement complexity and social differentiation   |
-| Bronze–Early Iron Age | ca. 1550–221 BCE       | Bronze Age societies through the pre-Qin Iron Age             |
-| Early Imperial        | 221 BCE–589 CE         | Qin–Han through the Northern and Southern Dynasties           |
-| Middle Imperial       | 589–1368 CE            | Sui, Tang, Song, Yuan, and contemporaneous regional dynasties |
-| Late Imperial         | 1368–1912 CE           | Ming and Qing dynasties                                       |
-
-Neolithic assignments are based primarily on documented **local cultural phases** rather than rigid calendar cut-offs. The date ranges above therefore represent broad analytical categories used for cross-regional comparison.
-
-Site-specific cultural attributions and chronologies are reported separately in the supplementary archaeological metadata.
-
----
-
-## Sample
-
-The primary analytical dataset comprises:
-
-* **2,931 individuals**
-
-  * **1,566 males**
-  * **1,365 females**
-* **71 site-period groups**
-* **64 archaeological sites**
-
-The primary dataset excludes the **Sding-Chung** assemblage because sex for that highly commingled assemblage had been estimated using femoral dimensions, creating potential non-independence between sex classification and femoral measurements used as analytical outcomes.
-
-Sding-Chung is retained only for sensitivity analyses of femoral traits.
-
----
-
-## Osteometric Variables
-
-The following measurements are included:
-
-| Variable | Description             | Individuals with data |
-| -------- | ----------------------- | --------------------: |
-| FXL      | Femur maximum length    |                 2,416 |
-| TXL      | Tibia maximum length    |                 1,009 |
-| HXL      | Humerus maximum length  |                   636 |
-| RXL      | Radius maximum length   |                   493 |
-| FBL      | Femur bicondylar length |                   103 |
-| FHD      | Femoral head diameter   |                 1,118 |
-
-FXL is used as a proxy for adult linear body size / stature, while FHD is used as an indicator related to body mass and articular breadth.
-
-Measurements collected directly by DC for **Gaoshan, Zhijiaozhongxin, Phiyang-Dungkar, Pukar Gongma, Buta-Siongqu, and Gulie** follow the osteometric definitions summarised by Ruff (2018, pp. 5–7). Measurements for the remaining comparative groups were compiled from published osteological sources.
-
----
-
-## Limb Proportion Indices
-
-Two conventional intra-limb proportion indices were calculated:
-
-* **Brachial Index (BI)** = RXL / HXL
-* **Crural Index (CI)** = TXL / FBL
-
-Where FBL was unavailable but FXL was present, FBL was estimated from FXL following Auerbach (2011), providing approximately **2,300 additional FBL estimates for calculation of CI**.
-
-Final index availability:
-
-* **BI: n = 383**
-* **CI: n = 799**
-
-BI and CI were calculated only where the required component measurements were available.
-
----
-
-## Missing Data
-
-Missing skeletal measurements are common in archaeological samples because preservation, recovery, and reporting vary among skeletal elements and assemblages.
-
-The analyses therefore **do not require individuals to have complete measurements across all skeletal variables**.
-
-Instead:
-
-* each skeletal trait is analysed separately;
-* each model includes all individuals for whom the relevant outcome and required covariates are available;
-* missing values for the primary skeletal traits are **not imputed**;
-* effective sample size therefore differs among traits and sex-specific models.
-
-This approach retains the maximum available sample for each skeletal outcome while recognising that differences in preservation and reporting may contribute to variation in sample composition across analyses.
-
----
-
-## Sex Estimation
-
-### Directly examined assemblages
-
-For the six assemblages examined directly by DC, sex estimation for individuals retained in the primary analyses was based on sufficiently preserved **pelvic morphology**, following established osteological protocols.
-
-No individual in these primary directly examined samples was sexed solely from cranial traits.
-
-### Published comparative samples
-
-For the remaining comparative groups:
-
-* sex classifications were taken from the original publications;
-* most sources reported individuals categorically as male or female;
-* individuals reported only as **probable male** or **probable female** were excluded from sex-specific analyses.
-
-The anatomical basis and confidence of published sex estimates were not consistently reported at the individual level, so sex-estimation uncertainty could not be modelled uniformly across the full comparative dataset.
-
-### Sding-Chung sensitivity analysis
-
-Sding-Chung consists of highly commingled and disarticulated human remains, and isolated femora could not be reliably reassociated with pelvic elements. Sex had therefore been estimated from femoral dimensions using discriminant functions.
-
-Because femoral dimensions also form outcomes in the present study, Sding-Chung was excluded from the **primary analyses** to avoid classification-induced size bias.
-
-Sensitivity models were additionally fitted with Sding-Chung included to assess whether its inclusion materially altered the FXL and FHD results.
-
----
-
-## Environmental Data
-
-Environmental variables were extracted for each archaeological location from **WorldClim v2.1** at approximately 30 arc-second (~1 km) resolution.
-
-Variables include:
-
-* minimum temperature of the coldest month;
-* maximum temperature of the warmest month;
-* precipitation of the driest month;
-* precipitation of the wettest month;
-* altitude.
-
-Source:
-
-Fick, S. E., & Hijmans, R. J. (2017). WorldClim 2: New 1-km spatial resolution climate surfaces for global land areas. *International Journal of Climatology, 37*(12), 4302–4315. https://doi.org/10.1002/joc.5086
-
----
-
-# Methods Summary
-
-## Bayesian Generalised Additive Mixed Models
-
-Bayesian Generalised Additive Mixed Models (GAMMs) were fitted to individual-level osteometric data using the `brms` package, which interfaces with Stan for Hamiltonian Monte Carlo sampling.
-
-All models were fitted separately by sex and skeletal trait.
-
-The general model structure is:
-
-```text
-Trait_z ~ period +
-          t2(longitude_scaled, latitude_scaled) +
-          mintemp_scaled +
-          maxtemp_scaled +
-          minprecip_scaled +
-          maxprecip_scaled +
-          altitude_scaled +
-          (1 | site_id)
-```
-
-For FHD models, FXL was additionally included as a covariate so that femoral head size could be interpreted relative to linear skeletal size.
-
----
-
-## Hierarchical Structure
-
-Individual skeletal observations are nested within archaeological **site-period groups**.
-
-The term:
+This repository contains the data and R code supporting the manuscript *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*, currently under review at the *Journal of Archaeological Science*. The workflow covers data preparation, Bayesian modelling, model diagnostics, predictions, and figure production.
+
+The analysis fits separate male and female models for seven traits: femoral maximum length (FXL), femoral head diameter (FHD), tibial maximum length (TXL), humeral maximum length (HXL), radial maximum length (RXL), brachial index (BI), and crural index (CI).
+
+The study spans the Early Neolithic to the Late Imperial period and includes lowland and high-altitude populations. Bayesian generalised additive mixed models (GAMMs) examine temporal trends, nonlinear spatial patterns, environmental associations, and variation among site-period groups.
+
+## Repository contents
+
+| Path | Contents |
+| :--- | :--- |
+| `data/bodyform_data_AUDITED_v2.xlsx` | Measurement data and individual-level metadata; the analysis reads the `Analysis_Data` sheet. |
+| `mapdata/` | China boundary shapefile and supporting map files. |
+| `scripts/Ancient_China_Body_Form_Analysis.Rmd` | Main analysis notebook, including all 14 primary models and combined figures. |
+| `climatic data/` | Local folder for the WorldClim layers downloaded from the external source below. |
+| `output/audit/` | Generated model datasets, sample counts, exclusions, environmental checks, and prediction draw IDs. |
+| `output/tables/` | Generated model summaries, diagnostics, scaling parameters, and numerical results. |
+| `output/models/` | Fitted model objects generated locally. |
+| `output/figures/` | Individual and combined figures generated locally. |
+| `output/` | Spatial prediction CSV files and R session information. |
+
+The script creates the output folders automatically. Large fitted models and high-resolution figures are generated by running the analysis; they are not required as inputs. Lightweight JPG or PNG copies can be used to browse the figures on GitHub.
+
+## Data and variables
+
+The primary sample contains **2,931 individuals (1,566 males and 1,365 females)**, before filtering for the measurements required by each model. The commingled Sding-Chung assemblage (`SDC`) is excluded from the primary FXL and FHD analyses because femoral dimensions contributed to its sex classification, creating potential dependence between sex classification and the traits being analysed. TXL, HXL, RXL, BI, and CI have no available SDC observations.
+
+The dataset combines measurements collected directly by Doudou Cao at Gaoshan, Zhijiaozhongxin, Phiyang-Dungkar, Pukar Gongma, Buta-Siongqu, and Gulie with comparative measurements compiled from published osteological sources. Sex estimates for the directly examined primary samples were based on pelvic morphology; classifications for published comparative samples follow their original sources.
+
+Key fields in the measurement workbook are:
+
+| Field | Meaning and use |
+| :--- | :--- |
+| `indiv_id` | Individual identifier. |
+| `site_id` | Site-period group identifier used for the random intercept; different groups can belong to the same archaeological site. |
+| `site_id_chinese`, `province_region` | Chinese site name and province or region. |
+| `sex` | `0` = male; `1` = female. |
+| `longitude`, `latitude` | Site coordinates in decimal degrees, WGS84. |
+| `date_interval_bp`, `Time_plus`, `Time_minus` | Dating interval and its upper and lower bounds in years BP. Both numeric bounds are required for inclusion in the models. |
+| `period_proposed` | Period classification used in the analysis. |
+| `period_original` | Earlier period classification retained in the workbook. |
+| `FXL`, `FHD`, `TXL`, `HXL`, `RXL` | Skeletal measurements in millimetres. |
+| `FBL`, `BI`, `CI` | Femoral bicondylar length and limb indices; recalculated during preparation using the equations below. |
+
+The analysis uses the following broad chronological categories:
+
+| Code | Period | Approximate date range |
+| :--- | :--- | :--- |
+| `E_Neo` | Early Neolithic | ca. 7050–5050 BCE |
+| `M_Neo` | Middle Neolithic | ca. 5050–2550 BCE |
+| `L_Neo` | Late Neolithic | ca. 2550–1550 BCE |
+| `Bronze_Early_Iron` | Bronze–Early Iron Age | ca. 1550–221 BCE |
+| `EarlyImp` | Early Imperial | 221 BCE–589 CE |
+| `MiddleImp` | Middle Imperial | 589–1368 CE |
+| `LateImp` | Late Imperial | 1368–1912 CE |
+
+These ranges provide a broad framework for comparison. Neolithic assignments also reflect documented local cultural phases; the analysis uses the workbook’s `period_proposed` classification.
+
+The preparation code calculates:
 
 ```r
-(1 | site_id)
+FBL = 0.995 * FXL - 1.557
+BI  = 100 * RXL / HXL
+CI  = 100 * TXL / FBL
 ```
 
-represents a group-specific varying intercept that accounts for shared group-level influences and enables partial pooling across groups with different sample sizes.
+FBL is estimated in millimetres using the same equation for both sexes, following [Auerbach (2011), American Journal of Physical Anthropology 145:67–80, p. 76](https://doi.org/10.1002/ajpa.21469). BI and CI are dimensionless ratios multiplied by 100.
 
-This structure allows group-level estimates to be informed by both local observations and the broader dataset.
+Each model uses individuals with the required measurements and dating bounds. FHD additionally requires FXL. Individuals need not have complete measurements for every trait, and missing primary skeletal measurements are not imputed. The current primary model summaries contain the following sample sizes:
 
----
+| Trait | Male | Female |
+| :--- | ---: | ---: |
+| FXL | 1,311 | 1,105 |
+| FHD | 504 | 427 |
+| TXL | 585 | 424 |
+| HXL | 360 | 276 |
+| RXL | 276 | 217 |
+| BI | 223 | 160 |
+| CI | 478 | 330 |
 
-## Standardisation
+## External spatial data
 
-Continuous predictors were standardised before modelling, including:
+### WorldClim
 
-* longitude;
-* latitude;
-* minimum temperature;
-* maximum temperature;
-* minimum precipitation;
-* maximum precipitation;
-* altitude.
+Download the **WorldClim 2.1 bioclimatic variables and elevation at 30 arc-second resolution** from the [official download page](https://www.worldclim.org/data/worldclim21.html). Select `bio 30s` and `elev 30s`, extract the archives, and place these five files directly in `climatic data/` at the repository root:
 
-Outcome variables were also standardised within the corresponding sex-specific analytical dataset.
+| Required filename | Variable in the code | Environmental measure |
+| :--- | :--- | :--- |
+| `wc2.1_30s_bio_6.tif` | `Mintemp` | Coldest-month minimum temperature |
+| `wc2.1_30s_bio_5.tif` | `Maxtemp` | Warmest-month maximum temperature |
+| `wc2.1_30s_bio_14.tif` | `Minprecip` | Driest-month precipitation |
+| `wc2.1_30s_bio_13.tif` | `Maxprecip` | Wettest-month precipitation |
+| `wc2.1_30s_elev.tif` | `Altitude` | Elevation |
 
-Standardisation:
+WorldClim's climatic reference period is **1970–2000**. These layers provide the spatial environmental covariates used in the analysis. The script extracts values in their source units and standardises them within each model sample. The model's `Altitude` comes from the elevation raster; lowercase `altitude` in the workbook remains source metadata.
 
-* improves numerical stability;
-* expresses effects in standard-deviation units;
-* facilitates comparison among predictors;
-* facilitates comparison of relative patterns among skeletal traits and between male and female models.
+The file names and MD5 checksums used in a run are saved in `output/audit/environmental_file_manifest.csv`. See the [WorldClim variable definitions](https://www.worldclim.org/data/bioclim.html) for further details.
 
-The z-score results describe deviations relative to the corresponding trait- and sex-specific mean. Selected effects are additionally expressed in original measurement units in the manuscript to facilitate biological interpretation.
+### Mapping files
 
----
+Keep the China shapefile components together in `mapdata/`, with the same base name: `china.shp`, `china.shx`, `china.dbf`, and `china.prj`. The plotting code expects WGS84 geographic coordinates.
 
-## Temporal Modelling
+The grey background uses **Natural Earth Gray Earth with Shaded Relief, Hypsography, and Flat Water**. If it is not included locally, download the large version from the [Natural Earth 1:10m Gray Earth page](https://www.naturalearthdata.com/downloads/10m-raster-data/10m-gray-earth/) and place `GRAY_HR_SR_W.tif` in `mapdata/`. This raster is used for map display; environmental predictors are extracted from WorldClim.
 
-Temporal variation was modelled using a categorical archaeological-period variable rather than assigning artificial point estimates to assemblages with broad chronological ranges.
+## Running the analysis
 
-The seven ordered analytical periods correspond to:
+Use R with a working RStan installation and its required C++ toolchain. RStudio is convenient for opening the R Markdown notebook and includes Pandoc for HTML rendering. Platform-specific installation instructions are available in the [RStan setup guide](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started).
+
+The notebook's `setup` chunk installs missing R packages and loads:
 
 ```text
-1. Early Neolithic
-2. Middle Neolithic
-3. Late Neolithic
-4. Bronze–Early Iron Age
-5. Early Imperial
-6. Middle Imperial
-7. Late Imperial
+tidyverse, readxl, brms, rstan, posterior, tidybayes,
+terra, sf, patchwork, ggnewscale, RColorBrewer,
+ragg, knitr, rmarkdown
 ```
 
-Period was fitted using sum-to-zero contrasts (`contr.sum`), so estimated period effects represent deviations relative to the overall mean rather than differences from a single reference category.
-
----
-
-## Likelihood and Priors
-
-Models use a **Student-t likelihood** to provide robustness to outliers and heavy-tailed residual variation.
-
-Weakly informative priors include:
-
-```text
-Fixed effects:           Normal(0, 1)
-Intercept:               Normal(0, 1)
-Residual SD:             Student-t(3, 0, 1)
-Group-level SD:          Student-t(3, 0, 1)
-Smoothness parameters:   Exponential(1)
-Degrees of freedom:      Gamma(2, 0.1)
-```
-
----
-
-## MCMC Sampling
-
-The standard fitting workflow uses:
-
-```text
-4 chains
-4,000 iterations per chain
-1,000 warm-up iterations
-```
-
-Convergence is assessed using R-hat and effective sample sizes.
-
----
-
-# Reproducibility Option
-
-The example script includes an explicit reproducibility switch:
+1. Download or clone the repository and prepare the spatial files described above.
+2. Start a fresh R session with the repository root as the working directory.
+3. Run the notebook from beginning to end, or render it using the following commands in the R console:
 
 ```r
-# FALSE = standard multi-core run
-# TRUE  = single-core run with fixed seed for reproducibility checking
+project_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
+Sys.setenv(ARCHAEO_BODYFORM_ROOT = project_root)
 
-reproducible_run <- FALSE
-```
+if (!requireNamespace("rmarkdown", quietly = TRUE)) {
+  install.packages("rmarkdown", repos = "https://cloud.r-project.org")
+}
 
-When:
-
-```r
-reproducible_run <- TRUE
-```
-
-models are fitted using:
-
-```r
-cores = 1
-seed  = 42
-```
-
-This provides a deterministic reproducibility check within the same computational environment.
-
-When:
-
-```r
-reproducible_run <- FALSE
-```
-
-models use multiple cores for computational efficiency.
-
-The same option is applied to the primary and sensitivity models.
-
----
-
-# Posterior Summaries
-
-Posterior uncertainty is summarised using **90% equal-tailed credible intervals (CrIs)**.
-
-These intervals are defined by the:
-
-```text
-5th percentile – 95th percentile
-```
-
-of the posterior distribution.
-
-For example:
-
-```r
-fixef(
-  fit_male_FXL,
-  probs = c(0.05, 0.95)
+rmarkdown::render(
+  input = file.path(project_root, "scripts", "Ancient_China_Body_Form_Analysis.Rmd"),
+  knit_root_dir = project_root,
+  output_dir = project_root
 )
 ```
 
-and posterior-draw summaries use corresponding 90% quantile intervals.
+The notebook runs shared preparation, male and female FXL, FHD, TXL, HXL, RXL, BI, and CI analyses, and then the combined figures. Later sections reuse objects created earlier, so run them in this order.
 
-Highest posterior density intervals (HPDIs/HDIs) are not used for the reported primary interval summaries.
+The default configuration uses four chains, 4,000 iterations per chain, 1,000 warm-up iterations, `adapt_delta = 0.99`, and `max_treedepth = 15`. This retains 12,000 posterior draws per model. The base random seed is 42, with explicit offsets for subsequent models and prediction steps.
 
----
+Model fitting is the most computationally demanding stage. The default `refit_mode = "on_change"` reuses eligible saved fits. To refit every model, or after changing sampling settings or seeds, set `refit_mode <- "always"` in `setup` before running. The optional SDC analyses for FXL and FHD can be enabled with `run_sdc_sensitivity <- TRUE` and a full rerun from preparation onward.
 
-# Conditional Effects
+R and package versions are recorded by the script in `output/sessionInfo.txt` and the trait-specific session files; the final combined-figure stage writes `output/sessionInfo_combined_figures.txt`.
 
-Population-level conditional effects are generated using:
+## Models and predictions
 
-```r
-conditional_effects(
-  fit,
-  re_formula = NA,
-  prob = 0.90
-)
-```
+All models use a Student-t response distribution, period effects, a two-dimensional spatial smooth of longitude and latitude, environmental covariates, and a random intercept for `site_id`. FHD models additionally include standardised FXL. Responses and continuous predictors are standardised separately within each sex-and-trait model sample; the means and standard deviations are exported for reuse and back-transformation.
 
-Group-level random effects are therefore excluded from these conditional-effect plots.
-
-For continuous focal predictors, other covariates are held at their scaled means.
-
----
-
-# Spatial Prediction
-
-Spatial predictions are generated over a regular grid spanning approximately:
+The general model formula is:
 
 ```text
-Longitude: 70–140° E
-Latitude:  10–60° N
+Trait_z ~ period + t2(longitude_scaled, latitude_scaled) +
+          mintemp_scaled + maxtemp_scaled +
+          minprecip_scaled + maxprecip_scaled +
+          altitude_scaled + (1 | site_id)
 ```
 
-Environmental covariates are extracted for each grid location and standardised using the same parameters used in model fitting.
+FHD models add `FXL_z` to this formula. Period uses sum-to-zero contrasts, and the site-period random intercept provides partial pooling across groups.
 
-Predictions are generated from the **population-level component** of the model:
+Temporal plots show posterior median expected values and 90% credible intervals with continuous covariates fixed at their model-sample means and site random effects excluded. FHD predictions also hold `FXL_z = 0`, corresponding to the mean FXL in that FHD model's sample. Period is a categorical predictor, with categories arranged chronologically in the plots.
 
-```r
-re_formula = NA
-```
+Spatial predictions exclude site random effects and use local environmental values on a 350 × 350 longitude–latitude grid, restricted to a buffered convex hull of the sites represented in each model. The default uses 1,000 selected posterior draws and processes 250 grid cells at a time. Across-period surfaces give equal weight to the periods represented in the model: predictions are averaged **within each posterior draw**, then summarised by their median and 5th and 95th percentiles. These intervals describe uncertainty in the expected response. FHD maps use the same `FXL_z = 0` condition as the temporal plots.
 
-and therefore exclude group-specific varying intercepts.
+## Finding figures and numerical results
 
----
+Individual model chunks follow the pattern `male-fxl-data`, `male-fxl-fit`, `male-fxl-diagnostics`, `male-fxl-period`, `male-fxl-fixed`, `male-fxl-random`, `male-fxl-grid`, `male-fxl-predictions`, and `male-fxl-spatial-trends`. Other models use the corresponding sex and trait in their chunk names.
 
-## Posterior Prediction Summaries
+The combined figures are assembled near the end of the notebook and written to `output/figures/` by `combined-figures-save`. The table lists their output names without the `.png` or `.tiff` extension.
 
-Spatial predictions use posterior draws and are summarised with medians and 90% equal-tailed CrIs.
+| Figure content | Code section or chunk | Output filename(s) |
+| :--- | :--- | :--- |
+| Sample distribution, Fig. 2 | `Sample distribution before model-specific filtering` | `Fig2_sample_size_map` |
+| FXL, FHD, BI, CI spatial medians | `combined-spatial-medians` | `combined_male_spatial2`; `combined_female_spatial2`; `combined_spatial_both_sexes_FXL_FHD_BI_CI` |
+| TXL, HXL, RXL spatial medians | `combined-spatial-medians` | `combined_spatial_thr2` |
+| FXL, FHD, BI, CI spatial interval bounds | `combined-spatial-bounds` | `combined_male_uncertain_1_2`; `combined_female_uncertain_1_2` |
+| TXL, HXL, RXL spatial interval bounds | `combined-spatial-bounds` | `combined_male_uncertain_2_2`; `combined_female_uncertain_2_2` |
+| Temporal trends | `combined-temporal` | `combined_temporal_bodysize`; `combined_temporal_proportion`; `combined_temporal_upper`; `combined_temporal_thr` |
+| Fixed effects | `combined-fixed-effects` | `fixed_effects`; `fixed_effects_thr` |
+| Site-period random intercepts | `combined-random-effects` | `random_effects`; `random_effects_fxl`; `random_effects_fhd`; `random_effects_txl` |
 
-Example:
+Numerical outputs include the following:
 
-```r
-add_epred_draws(
-  fit_male_FXL,
-  newdata = chunk,
-  re_formula = NA,
-  ndraws = 200
-) %>%
-  median_qi(.epred, .width = 0.90)
-```
+- `output/tables/sample_size_by_period.csv` and `sample_size_by_group_location.csv`: sample distribution underlying the map.
+- `output/audit/sample_flow.csv` and model-specific datasets: the individuals and groups entering each analysis.
+- `output/tables/*_model_summary.txt`, `*_posterior_diagnostics.csv`, and `*_sampler_diagnostics.csv`: estimates and sampling diagnostics.
+- Trait-specific temporal, fixed-effect, random-effect, and scaling tables in `output/tables/`.
+- `output/*_grid_all_periods_draw_average_CI90.csv`: across-period spatial medians and credible intervals, with columns `Longitude`, `Latitude`, `med`, `low`, and `high`.
+- Period-specific spatial predictions in the corresponding `*_grid_epred_*.csv` files.
 
-For each grid cell and period, the workflow returns:
+The saved prediction tables can be used to redraw spatial results without repeating posterior prediction. Figure dimensions and export resolutions for the combined plots are recorded in `output/figures/combined_figure_settings.csv`.
 
-* posterior median;
-* lower 90% CrI;
-* upper 90% CrI.
+## Citation
 
----
+When using these data or code, please cite the associated manuscript and identify the repository version or commit used:
 
-## All-Period Spatial Surface
+Cao, D., et al. *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. Manuscript under review at the *Journal of Archaeological Science*.
 
-Predictions are first generated separately for all seven archaeological periods.
+Full publication details and the article DOI will be added after publication.
 
-Period-specific predictions are then averaged at each grid cell to produce an overall spatial summary surface representing mean predicted variation across the chronological range of the study.
+Related doctoral thesis:
 
-The mapped surface therefore does not represent any single historical period.
+Cao, D. (2025). *Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations*. Apollo, University of Cambridge Repository. [https://doi.org/10.17863/CAM.123688](https://doi.org/10.17863/CAM.123688).
 
----
+## Contact
 
-## Spatial Masking
+**Doudou Cao** — Institute for the Humanities and Social Sciences (IHSS), University of Hong Kong. [dcao@hku.hk](mailto:dcao@hku.hk).
 
-To reduce extrapolation far beyond the geographic distribution of the archaeological sample, predicted surfaces are restricted using a buffered convex hull based on observed site locations.
-
-Mapped outputs include:
-
-* posterior median surface;
-* lower 90% CrI surface;
-* upper 90% CrI surface.
-
----
-
-# Sensitivity Analysis: Sding-Chung
-
-The primary models exclude Sding-Chung because femoral measurements contributed to sex classification in this commingled assemblage.
-
-Sensitivity analyses reintroduce Sding-Chung into the FXL and FHD models to assess whether its inclusion materially alters the results.
-
-The example workflow therefore distinguishes explicitly between:
-
-```r
-# Primary model
-fit_male_FXL_main <- fit_male_FXL_noSDC
-```
-
-and sensitivity models that include Sding-Chung.
-
-This allows robustness to its inclusion to be evaluated while retaining the more conservative analysis as the primary model.
-
----
-
-# Software and Key Packages
-
-The analysis was conducted in **R**.
-
-Core modelling:
-
-* `brms`
-* `Stan`
-
-Posterior processing and visualisation:
-
-* `tidybayes`
-* `bayesplot`
-* `broom.mixed`
-
-Data manipulation:
-
-* `tidyverse`
-* `purrr`
-
-Spatial processing and mapping:
-
-* `raster`
-* `terra`
-* `sf`
-* `sp`
-* `tidyterra`
-* `elevatr`
-
-Additional plotting and workflow packages include:
-
-* `patchwork`
-* `fields`
-* `gstat`
-* `akima`
-
----
-
-# Data and Code Availability
-
-This repository provides:
-
-* individual-level osteometric data used in the analyses;
-* archaeological metadata;
-* an example model-fitting workflow;
-* posterior prediction and visualisation code;
-* representative analytical outputs.
-
-The example script focuses on male FXL to avoid duplicating near-identical code for every skeletal trait and sex.
-
-The same analytical framework was applied to the remaining outcomes.
-
----
-
-# Citation
-
-If you use the data, code structure, or analytical workflow, please cite the associated study:
-
-**Cao, D., et al.** *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations.*
-
-Citation details will be updated following publication.
-
-For the associated doctoral thesis:
-
-Cao, D. (2025). *Adaptation at High Altitudes: A Comparative Analysis of Body Size and Proportions in Ancient Tibetan and Lowland Chinese Populations*. Apollo – University of Cambridge Repository. https://doi.org/10.17863/CAM.123688
-
----
-
-# Contact
-
-**Doudou Cao**
-Institute for the Humanities and Social Sciences (IHSS)
-University of Hong Kong
-[dcao@hku.hk](mailto:dcao@hku.hk)
+For questions about the analysis or to report a reproducibility issue, please open an issue in this repository or contact the author.
