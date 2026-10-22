@@ -1,0 +1,44 @@
+ Family: student 
+  Links: mu = identity 
+Formula: CI_z ~ period + t2(longitude_scaled, latitude_scaled) + mintemp_scaled + maxtemp_scaled + minprecip_scaled + maxprecip_scaled + altitude_scaled + (1 | site_id) 
+   Data: male_CI_main_data (Number of observations: 478) 
+  Draws: 4 chains, each with iter = 4000; warmup = 1000; thin = 1;
+         total post-warmup draws = 12000
+
+Smoothing Spline Hyperparameters:
+                                         Estimate Est.Error l-90% CI u-90% CI Rhat Bulk_ESS Tail_ESS
+sds(t2longitude_scaledlatitude_scaled_1)     1.34      1.23     0.07     3.82 1.00     5222     6709
+sds(t2longitude_scaledlatitude_scaled_2)     0.99      0.98     0.05     2.93 1.00     9782     6259
+sds(t2longitude_scaledlatitude_scaled_3)     1.05      1.03     0.05     3.16 1.00     9185     6694
+
+Multilevel Hyperparameters:
+~site_id (Number of levels: 40) 
+              Estimate Est.Error l-90% CI u-90% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.14      0.09     0.01     0.30 1.00     3039     4872
+
+Regression Coefficients:
+                                    Estimate Est.Error l-90% CI u-90% CI Rhat Bulk_ESS Tail_ESS
+Intercept                               0.10      0.11    -0.08     0.27 1.00     8526     8705
+period1                                 0.40      0.36    -0.19     0.99 1.00     9725     8007
+period2                                -0.30      0.26    -0.72     0.14 1.00     7567     7329
+period3                                -0.14      0.18    -0.43     0.15 1.00    11648     9172
+period4                                -0.26      0.14    -0.50    -0.03 1.00     7644     8462
+period5                                -0.34      0.15    -0.58    -0.10 1.00    10164     8328
+period6                                 0.03      0.17    -0.25     0.31 1.00    11346     9160
+mintemp_scaled                          0.16      0.34    -0.40     0.72 1.00     6135     7588
+maxtemp_scaled                         -0.14      0.37    -0.74     0.45 1.00     6660     7455
+minprecip_scaled                        0.15      0.10    -0.01     0.32 1.00     5981     6293
+maxprecip_scaled                       -0.09      0.10    -0.25     0.07 1.00     9307     8252
+altitude_scaled                         0.06      0.57    -0.88     0.99 1.00     5939     6828
+t2longitude_scaledlatitude_scaled_1    -0.22      0.29    -0.70     0.26 1.00     6048     7578
+t2longitude_scaledlatitude_scaled_2    -0.25      0.25    -0.66     0.17 1.00     7147     8212
+t2longitude_scaledlatitude_scaled_3     0.09      0.10    -0.08     0.25 1.00     7905     6961
+
+Further Distributional Parameters:
+      Estimate Est.Error l-90% CI u-90% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.86      0.05     0.79     0.94 1.00    10384     8918
+nu       13.41      7.50     6.08    27.72 1.00    10446     8308
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
