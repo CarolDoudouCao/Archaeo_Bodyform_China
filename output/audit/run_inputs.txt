@@ -1,0 +1,5 @@
+Workbook: D:/A_Work_2026/May/Ancient body form/Resubmission/jas_codes/data/bodyform_data_AUDITED_v2.xlsx
+Workbook MD5: 5f6ea6be97d7025b5c812179f6233788
+SDC sensitivity: FALSE
+Fill remaining FBL gaps: FALSE
+Seed: 42

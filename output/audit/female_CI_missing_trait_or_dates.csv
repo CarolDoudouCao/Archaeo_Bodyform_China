@@ -1,0 +1,44 @@
+indiv_id,site_id,site_id_chinese,province_region,longitude,latitude,altitude,altitude_range,Subsistence,sex,FXL,FBL,FHD,TXL,HXL,RXL,BI,CI,Measure,period_original,period_proposed,period,FBL_source,Mintemp,Maxtemp,Minprecip,Maxprecip,Altitude
+QLSM106,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,322.5,256,79.37984496124031,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM109,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,403,399.428,42,NA,275.5,211,76.58802177858439,NA,Direct,L_Neo,L_Neo,L_Neo,estimated_Auerbach2011,-7.5,23.899999618530273,7,135,1609
+QLSM110yangshen,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,285,224,78.59649122807018,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM111Low,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,296,234,79.05405405405405,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM146ES,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,334,289,204,70.58823529411765,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM148,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,422,418.33299999999997,49.7,NA,296,236.5,79.89864864864865,NA,Direct,L_Neo,L_Neo,L_Neo,estimated_Auerbach2011,-7.5,23.899999618530273,7,135,1609
+QLSM175,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,326,285,211,74.03508771929825,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM189,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,291.5,228,78.21612349914237,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM193,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,322,260,80.74534161490683,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM196,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,364,306,238.5,77.94117647058823,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM197,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,330,275,216,78.54545454545455,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM286,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,385,327,248,75.84097859327217,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM288,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,294,234,79.59183673469387,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM328,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,334,258,77.24550898203593,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM354(2),Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,304,251,82.5657894736842,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+QLSM97,Qingliangsi_period2,清凉寺,Shanxi,110.35,34.43,1106,low,2,1,NA,NA,NA,NA,295,224,75.9322033898305,NA,Direct,L_Neo,L_Neo,L_Neo,missing_no_FXL,-7.5,23.899999618530273,7,135,1609
+2016JJM15,Jiaojia,焦家,Shandong,117.36,36.79,33,low,2,1,NA,NA,40.37,328,306,230,75.16339869281046,NA,Direct,M_Neo,M_Neo,M_Neo,missing_no_FXL,-7.300000190734863,31,4,215,31
+2016JJM21South,Jiaojia,焦家,Shandong,117.36,36.79,33,low,2,1,406,402.41299999999995,43.16,NA,286,222.5,77.7972027972028,NA,Direct,M_Neo,M_Neo,M_Neo,estimated_Auerbach2011,-7.300000190734863,31,4,215,31
+2016JJM26,Jiaojia,焦家,Shandong,117.36,36.79,33,low,2,1,NA,NA,46.52,350,282,234,82.97872340425532,NA,Direct,M_Neo,M_Neo,M_Neo,missing_no_FXL,-7.300000190734863,31,4,215,31
+2016JJM51,Jiaojia,焦家,Shandong,117.36,36.79,33,low,2,1,405,401.418,NA,NA,292,214,73.28767123287672,NA,Direct,M_Neo,M_Neo,M_Neo,estimated_Auerbach2011,-7.300000190734863,31,4,215,31
+MGM694R3,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,413,409.378,NA,NA,290,245,84.48275862068965,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-16.200000762939453,16.600000381469727,2,118,3224
+MGM714R2,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,NA,NA,NA,357.5,306,251,82.02614379084967,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-16.200000762939453,16.600000381469727,2,118,3224
+MGM815R2,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,NA,NA,NA,NA,302,245.5,81.29139072847683,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-16.200000762939453,16.600000381469727,2,118,3224
+MGM875R3,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,NA,NA,NA,NA,312,226,72.43589743589743,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-16.200000762939453,16.600000381469727,2,118,3224
+MGM888R4,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,415,411.368,NA,NA,297,225.5,75.92592592592592,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-16.200000762939453,16.600000381469727,2,118,3224
+MGM895R2,Mogou,磨沟,Gansu,103.52,34.41,2200,low,3,1,NA,NA,NA,334.5,282.5,218.5,77.34513274336283,NA,Direct,L_Neo,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-16.200000762939453,16.600000381469727,2,118,3224
+NYYM18:2,Neiyangyuan_2,内阳垣_2,Shanxi,110,35,447,low,5,1,460,456.143,NA,NA,301,193,64.11960132890366,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-6.800000190734863,31,5,106,496
+NYYM27,Neiyangyuan_2,内阳垣_2,Shanxi,110,35,447,low,5,1,NA,NA,NA,379,312,244,78.2051282051282,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-6.800000190734863,31,5,106,496
+WLM187,Wanli,湾李,Shaanxi,109.13,34.22,641,low,5,1,NA,NA,NA,333,295,216,73.22033898305085,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-6,29.600000381469727,6,115,742
+WLM236,Wanli,湾李,Shaanxi,109.13,34.22,641,low,5,1,NA,NA,NA,NA,285,222,77.89473684210526,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-6,29.600000381469727,6,115,742
+WLM239,Wanli,湾李,Shaanxi,109.13,34.22,641,low,5,1,NA,NA,NA,NA,307.5,241,78.3739837398374,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-6,29.600000381469727,6,115,742
+WLM300,Wanli,湾李,Shaanxi,109.13,34.22,641,low,5,1,NA,NA,NA,336,279,219,78.49462365591398,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-6,29.600000381469727,6,115,742
+DTHM1,Dongtouhao,东头号,Inner Mongolia,112.12,40.25,1282,low,6,1,396,392.46299999999997,40.88,NA,282,215,76.24113475177305,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-20.5,27.100000381469727,3,97,1156
+2009ZNHBM237,Chuanzhang,川掌,Inner Mongolia,110.1,39.6,1379,low,6,1,NA,NA,NA,335,293,225,76.79180887372014,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-18.200000762939453,28,4,105,1358
+2009ZNHBM282,Chuanzhang,川掌,Inner Mongolia,110.1,39.6,1379,low,6,1,NA,NA,NA,341.5,294,230,78.2312925170068,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-18.200000762939453,28,4,105,1358
+2009ZNHBM175,Chuanzhang,川掌,Inner Mongolia,110.1,39.6,1379,low,6,1,NA,NA,NA,NA,297,222,74.74747474747475,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-18.200000762939453,28,4,105,1358
+009ZNHBM136,Chuanzhang,川掌,Inner Mongolia,110.1,39.6,1379,low,6,1,415,411.368,NA,NA,292,228,78.08219178082192,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-18.200000762939453,28,4,105,1358
+2009ZNHBM40,Chuanzhang,川掌,Inner Mongolia,110.1,39.6,1379,low,6,1,426,422.313,NA,NA,292,230,78.76712328767124,NA,Direct,Bronze_Early_Iron,Bronze_Early_Iron,Bronze_Early_Iron,estimated_Auerbach2011,-18.200000762939453,28,4,105,1358
+09YXⅠM16:B,Xitun_early,西屯_北朝,Beijing,116.25,40.011,56,low,5,1,420,416.34299999999996,NA,NA,314,252,80.2547770700637,NA,Direct,M_Iron,EarlyImp,EarlyImp,estimated_Auerbach2011,-9.800000190734863,30.799999237060547,3,186,68
+09YXⅠM121东,Xitun_early,西屯_北朝,Beijing,116.25,40.011,56,low,5,1,452,448.183,NA,NA,314,251.5,80.09554140127389,NA,Direct,M_Iron,EarlyImp,EarlyImp,estimated_Auerbach2011,-9.800000190734863,30.799999237060547,3,186,68
+2018ZPJM1,PYDG_III,皮央东嘎,Tibet,79.48,31.41,4510,high,NA,1,NA,NA,NA,298.5,288,212.85,73.90625,NA,Direct,E_M_Iron,MiddleImp,MiddleImp,missing_no_FXL,-16.600000381469727,17.799999237060547,16,140,4308
+2018ZPGM3-2,PYDG_I,皮央东嘎,Tibet,79.48,31.41,4510,high,NA,1,NA,NA,39.27,343,303.29,235.415,77.62042929209667,NA,Direct,E_M_Iron,Bronze_Early_Iron,Bronze_Early_Iron,missing_no_FXL,-16.600000381469727,17.799999237060547,16,140,4308
+2015CDGIIM68,GS,高山,Sichuan,103.34,30.27,585,low,NA,1,444.2,440.42199999999997,43.2,NA,300,236.5,78.83333333333333,NA,Direct,L_Neo,L_Neo,L_Neo,estimated_Auerbach2011,2.799999952316284,29.5,15,358,602
