@@ -193,7 +193,7 @@ The saved prediction tables can be used to redraw spatial results without repeat
 
 When using these data or code, please cite the associated manuscript and identify the repository version or commit used:
 
-Cao, D., et al. *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. Manuscript under review at the *Journal of Archaeological Science*.
+Cao, D., et al. *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*. Manuscript under review.
 
 Full publication details and the article DOI will be added after publication.
 
