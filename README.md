@@ -24,7 +24,7 @@ Selected outputs are included in `output/`, including sample counts, model summa
 
 ## Data and variables
 
-The primary sample contains **2,931 individuals (1,566 males and 1,365 females)**, before filtering for the measurements required by each model. The commingled Sding-Chung assemblage (`SDC`) is excluded from the primary FXL and FHD analyses because femoral dimensions contributed to its sex classification, creating potential dependence between sex classification and the traits being analysed. TXL, HXL, RXL, BI, and CI have no available SDC observations.
+The primary dataset comprises **2,931 individuals (1,566 males and 1,365 females) from 64 archaeological sites across China**. These are organised into **71 site–period groups**, spanning the Early Neolithic to the Late Imperial period. A site may contribute more than one group where samples represent different archaeological periods. Individual models use subsets of this dataset according to the measurements required for each analysis.
 
 The dataset combines measurements collected directly by Doudou Cao at Gaoshan, Zhijiaozhongxin, Phiyang-Dungkar, Pukar Gongma, Buta-Siongqu, and Gulie with comparative measurements compiled from published osteological sources. Sex estimates for the directly examined primary samples were based on pelvic morphology; classifications for published comparative samples follow their original sources.
 
