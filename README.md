@@ -1,6 +1,7 @@
 # Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations
 
 This repository contains the data and R code supporting the manuscript *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*, currently under review at the *Journal of Archaeological Science*. 
+
 The present study investigated body form (stature, body mass and proportions) of **2,931 individuals (1,566 males and 1,365 females) from 64 archaeological sites across China**. These are organised into **71 site–period groups**, spanning the Early Neolithic to the Late Imperial period. Bayesian generalised additive mixed models (GAMMs) examine temporal trends, nonlinear spatial patterns, environmental associations, and variation among site-period groups.
 
 The workflow covers data preparation, Bayesian modelling, model diagnostics, predictions, and figure production.
