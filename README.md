@@ -1,10 +1,9 @@
 # Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations
 
-This repository contains the data and R code supporting the manuscript *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*, currently under review at the *Journal of Archaeological Science*. The workflow covers data preparation, Bayesian modelling, model diagnostics, predictions, and figure production.
+This repository contains the data and R code supporting the manuscript *Spatiotemporal Variation in Human Body Form across Ancient Chinese Populations*, currently under review at the *Journal of Archaeological Science*. 
+The present study investigated body form (stature, body mass and proportions) of **2,931 individuals (1,566 males and 1,365 females) from 64 archaeological sites across China**. These are organised into **71 site–period groups**, spanning the Early Neolithic to the Late Imperial period. Bayesian generalised additive mixed models (GAMMs) examine temporal trends, nonlinear spatial patterns, environmental associations, and variation among site-period groups.
 
-The analysis fits separate male and female models for seven traits: femoral maximum length (FXL), femoral head diameter (FHD), tibial maximum length (TXL), humeral maximum length (HXL), radial maximum length (RXL), brachial index (BI), and crural index (CI).
-
-The study spans the Early Neolithic to the Late Imperial period and includes lowland and high-altitude populations. Bayesian generalised additive mixed models (GAMMs) examine temporal trends, nonlinear spatial patterns, environmental associations, and variation among site-period groups.
+The workflow covers data preparation, Bayesian modelling, model diagnostics, predictions, and figure production.
 
 ## Repository contents
 
@@ -27,6 +26,7 @@ Selected outputs are included in `output/`, including sample counts, model summa
 The primary dataset comprises **2,931 individuals (1,566 males and 1,365 females) from 64 archaeological sites across China**. These are organised into **71 site–period groups**, spanning the Early Neolithic to the Late Imperial period. A site may contribute more than one group where samples represent different archaeological periods. Individual models use subsets of this dataset according to the measurements required for each analysis.
 
 The dataset combines measurements collected directly by Doudou Cao at Gaoshan, Zhijiaozhongxin, Phiyang-Dungkar, Pukar Gongma, Buta-Siongqu, and Gulie with comparative measurements compiled from published osteological sources. Sex estimates for the directly examined primary samples were based on pelvic morphology; classifications for published comparative samples follow their original sources.
+The analysis fits separate male and female models for seven traits: femoral maximum length (FXL), femoral head diameter (FHD), tibial maximum length (TXL), humeral maximum length (HXL), radial maximum length (RXL), brachial index (BI), and crural index (CI).
 
 Key fields in the measurement workbook are:
 
