@@ -102,7 +102,7 @@ The file names and MD5 checksums used in a run are saved in `output/audit/enviro
 
 ### Mapping files
 
-Keep the China shapefile components together in `mapdata/`, with the same base name: `china.shp`, `china.shx`, `china.dbf`, and `china.prj`. The plotting code expects WGS84 geographic coordinates.
+Keep the China shapefile components together in `mapdata/`, with the same base name: `china.shp`and`china.shx`. The plotting code expects WGS84 geographic coordinates.
 
 The grey background uses **Natural Earth Gray Earth with Shaded Relief, Hypsography, and Flat Water**. If it is not included locally, download the large version from the [Natural Earth 1:10m Gray Earth page](https://www.naturalearthdata.com/downloads/10m-raster-data/10m-gray-earth/) and place `GRAY_HR_SR_W.tif` in `mapdata/`. This raster is used for map display; environmental predictors are extracted from WorldClim.
 
